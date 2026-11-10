@@ -12,5 +12,6 @@ public class Main {
         System.out.print("pepe");
         System.out.println("Hola");
         int numero = 15000;
+        System.out.println("Hola");
     }
 }
