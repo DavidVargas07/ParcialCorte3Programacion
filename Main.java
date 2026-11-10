@@ -10,5 +10,6 @@ public class Main {
         System.out.print("Cadena: ");
         String cadena = kb.next();
         System.out.print("pepe");
+        int numero = 15000;
     }
 }
