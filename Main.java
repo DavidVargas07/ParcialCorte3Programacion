@@ -9,5 +9,6 @@ public class Main {
         int n = kb.nextInt();
         System.out.print("Cadena: ");
         String cadena = kb.next();
+        System.out.print("pepe");
     }
 }
