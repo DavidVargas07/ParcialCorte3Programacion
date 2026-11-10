@@ -1,20 +1,13 @@
-import javax.swing.*;
+import java.util.Scanner;
 
+//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-
-
-        //Muestra mensaje
-        JOptionPane.showMessageDialog(null,"Hola mundo");
-        JOptionPane.showMessageDialog(null,"Estamos en el año 2026");
-
-        // Muestra mensaje para capturar datos
-        int n = Integer.parseInt(JOptionPane.showInputDialog("Ingrese un numero: "));
-        JOptionPane.showMessageDialog(null, "Este es el numero al cuadrado de: " + (n*n));
-
-        //Mensajes de Error
-        JOptionPane.showMessageDialog(null, "Este es el numero al cuadrado de: " + (n*n), "Error", JOptionPane.ERROR_MESSAGE);
-
-
+        Scanner kb = new Scanner(System.in);
+        System.out.print("Numero n: ");
+        int n = kb.nextInt();
+        System.out.print("Cadena: ");
+        String cadena = kb.next();
     }
 }
