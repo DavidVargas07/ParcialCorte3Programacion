@@ -9,12 +9,7 @@ public class Main {
         int n = kb.nextInt(); // se pregunta n, siendo la anchura y altura del laberinto
         char matriz[][]=new char[n][n]; // cree una matriz de nxn
         System.out.print("Cadena: ");
-        String cadena = kb.next();
-        System.out.print("pepe");
-        System.out.println("Hola");
-        int numero = 15000;
-        System.out.println("Hola");
-        System.out.println("Esto es una prueba");
-        System.out.println("Quiubo mundo");
+        String cadena = kb.next(); // se pregunta la cadena de texto para hacer el laberinto
+
     }
 }
