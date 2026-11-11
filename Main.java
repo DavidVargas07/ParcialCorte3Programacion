@@ -13,5 +13,6 @@ public class Main {
         System.out.println("Hola");
         int numero = 15000;
         System.out.println("Hola");
+        System.out.println("Esto es una prueba");
     }
 }
