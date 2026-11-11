@@ -12,6 +12,10 @@ public class Main {
         String cadena = kb.next(); // se pregunta la cadena de texto para hacer el laberinto
         if (cadena.length()!=n*n) {
             System.out.print("La cadena no cumple con la longitud. :("); // evaluo si la cadena cumple la longitud
+        } else {
+            for (int i=0;i<n;i++) {
+
+            }
         }
 
     }
