@@ -1,7 +1,4 @@
 import java.util.Scanner;
-
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
         Scanner kb = new Scanner(System.in);
@@ -43,8 +40,19 @@ public class Main {
                         t++;
                     }
                 }
+                if (!sirve || o!=1 || x!=1) { // el texto no funciona
+                    System.out.print("El texto no funciona. :(");
+                } else {
+                    imprimir()
+                }
             }
         }
-
+    }
+    public static char imprimir[char matriz[a][b]] {
+        System.out.println("\u001B[48;5;208m\u001B[30m" + "+-" + "\u001B[0m");
+        for (int i=0;i<0;i++) {
+            System.out.println("\u001B[48;5;208m\u001B[30m" + "---" + "\u001B[0m");
+        }
+            System.out.print("-+");
     }
 }
