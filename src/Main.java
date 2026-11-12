@@ -7,17 +7,41 @@ public class Main {
         Scanner kb = new Scanner(System.in);
         System.out.print("Numero n: ");
         int n = kb.nextInt(); // se pregunta n, siendo la anchura y altura del laberinto
-        char matriz[][]=new char[n][n]; // cree una matriz de nxn
-        System.out.print("Cadena: ");
-        String cadena = kb.next(); // se pregunta la cadena de texto para hacer el laberinto
-        int t=0; // t va a servir para tomar la posicion de cada careacer en 'cadena'
-        if (cadena.length()!=n*n) {
-            System.out.print("La cadena no cumple con la longitud. :("); // evaluo si la cadena cumple la longitud
+        kb.nextLine(); // consume el salto de linea que deja nextInt()
+
+        // proceso de validacion de n
+        if (n<3) {
+            System.out.print("n debe ser mayor o igual a 3"); // evaluo que n cumpla con n>=3
         } else {
-            for (int i=0;i<n;i++) { // poner en la matriz los caracteres correspondientes
-                for (int l=0;i<n;i++) {
-                    matriz[i][l]=cadena.charAt(t);
-                    t++;
+            char matriz[][] = new char[n][n]; // cree una matriz de nxn
+            System.out.print("Cadena: ");
+            String cadena = kb.nextLine(); // se pregunta la cadena de texto para hacer el laberinto
+            int t = 0; // t va a servir para tomar la posicion de cada caracter en 'cadena'
+            int o = 0; // o va a verificar que haya una sola O en el texto
+            int x = 0; // x va a verificar que haya una sola X en el texto
+            boolean sirve = true; // sirve para saber si puede continuar el programa despues de evaluar los caracteres
+
+            // proceso de validacion de la cadena de texto
+            if (cadena.length() != n * n) {
+                System.out.print("La cadena no cumple con la longitud. :("); // evaluo si la cadena cumple la longitud
+            } else {
+                for (int i = 0; i < n; i++) { // evaluar que el texto tenga los caracteres y su cantidad correspondiente e introducirlos en la matriz
+                    for (int l = 0; l < n; l++) {
+                        if (cadena.charAt(t)==' ') {
+                            matriz[i][l]=cadena.charAt(t);
+                        } else if (cadena.charAt(t)=='+') {
+                            matriz[i][l]=cadena.charAt(t);
+                        } else if (cadena.charAt(t)=='O') {
+                            matriz[i][l]=cadena.charAt(t);
+                            o++;
+                        } else if (cadena.charAt(t)=='X') {
+                            matriz[i][l]=cadena.charAt(t);
+                            x++;
+                        } else {
+                            sirve = false; // si tiene otro caracter
+                        }
+                        t++;
+                    }
                 }
             }
         }
