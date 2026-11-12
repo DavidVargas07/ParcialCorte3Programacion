@@ -14,8 +14,10 @@ public class Main {
         if (cadena.length()!=n*n) {
             System.out.print("La cadena no cumple con la longitud. :("); // evaluo si la cadena cumple la longitud
         } else {
-            for (int i=0;i<n;i++) {
-
+            for (int i=0;i<n;i++) { // poner en la matriz los caracteres correspondientes
+                for (int l=0;i<n;i++) {
+                    matriz[i][l]=cadena.charAt(t);
+                }
             }
         }
 
