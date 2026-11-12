@@ -17,6 +17,7 @@ public class Main {
             for (int i=0;i<n;i++) { // poner en la matriz los caracteres correspondientes
                 for (int l=0;i<n;i++) {
                     matriz[i][l]=cadena.charAt(t);
+                    t++;
                 }
             }
         }
