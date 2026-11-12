@@ -7,14 +7,16 @@ public class Main {
         Scanner kb = new Scanner(System.in);
         System.out.print("Numero n: ");
         int n = kb.nextInt(); // se pregunta n, siendo la anchura y altura del laberinto
-        char matriz[][]=new char[n][n]; // cree una matriz de nxn
+        char matriz[][] = new char[n][n]; // cree una matriz de nxn
         System.out.print("Cadena: ");
-        String cadena = kb.next(); // se pregunta la cadena de texto para hacer el laberinto
-        if (cadena.length()!=n*n) {
+        kb.nextLine();
+        String cadena = kb.nextLine(); // se pregunta la cadena de texto para hacer el laberinto
+        if (cadena.length() != n * n) {
             System.out.print("La cadena no cumple con la longitud. :("); // evaluo si la cadena cumple la longitud
         } else {
+            String[] filas = cadena.split(" ");
             for (int i=0;i<n;i++) {
-
+                System.out.println(filas[i]);
             }
         }
 
