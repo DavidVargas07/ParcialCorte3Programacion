@@ -37,7 +37,7 @@ public class Main {
                         } else {
                             sirve = false; // si tiene otro caracter
                         }
-                        t++; // evaluar todos los caracteres de la cadena
+                        t++;
                     }
                 }
                 if (!sirve || o!=1 || x!=1) { // el texto no funciona
