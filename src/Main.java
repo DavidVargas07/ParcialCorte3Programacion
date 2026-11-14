@@ -51,6 +51,8 @@ public class Main {
                 if (!sirve || o != 1 || x != 1) { // el texto no funciona
                     System.out.print("El texto no funciona. :(");
                 } else {
+
+                    // Prioridad heurística - Distancia Manhattan
                     imprimir(matriz, n);
                 }
             }
