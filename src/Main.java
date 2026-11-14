@@ -65,7 +65,7 @@ public class Main {
                 } else if (matriz[i][l] == 'O') {
                     System.out.print("\u001B[100m\u001B[31m" + " O " + "\u001B[0m"); // para imprimir el inicio
                 } else if (matriz[i][l] == 'X') {
-                    System.out.print("\u001B[48;5;208m\u001B[30m" + " @ " + "\u001B[0m");
+                    System.out.print("\u001B[48;5;208m\u001B[30m" + " @ " + "\u001B[0m"); // para imprimir el final
                 }
             }
             System.out.print("\u001B[48;5;208m\u001B[30m" + " |" + "\u001B[0m");
