@@ -5,6 +5,7 @@ public class Main {
         System.out.print("Numero n: ");
         int n = kb.nextInt(); // se pregunta n, siendo la anchura y altura del laberinto
         kb.nextLine(); // consume el salto de linea que deja nextInt()
+        String cadena = "XXX"; // inicializar la cadena
 
         // proceso de validacion de n
         if (n < 3) {
