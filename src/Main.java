@@ -54,6 +54,7 @@ public class Main {
 
                     // Prioridad heurística - Distancia Manhattan
                     imprimir(matriz, n);
+
                 }
             }
         }
