@@ -48,6 +48,8 @@ public class Main {
             }
         }
     }
+
+
     public static void imprimir(char[][] matriz, int n) { // funcion para imprimir la matriz
         System.out.print("\u001B[48;5;208m\u001B[30m" + "+-" + "\u001B[0m"); // imprimir la ezquina superior izquierda
         for (int i = 0; i < n; i++) {
