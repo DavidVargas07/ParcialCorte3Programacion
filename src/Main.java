@@ -48,7 +48,7 @@ public class Main {
             }
         }
     }
-    public static char imprimir[char matriz[a][b]] {
+    public static void imprimir(char[][] matriz) {
         System.out.println("\u001B[48;5;208m\u001B[30m" + "+-" + "\u001B[0m");
         for (int i=0;i<0;i++) {
             System.out.println("\u001B[48;5;208m\u001B[30m" + "---" + "\u001B[0m");
