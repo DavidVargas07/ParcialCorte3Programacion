@@ -53,8 +53,8 @@ public class Main {
                 } else {
 
                     // Prioridad heurística - Distancia Manhattan
-                    imprimir(matriz, n);
-
+                    ImprimirMatriz.imprimir(matriz, n);
+                    MatrizInicial.matriz_inicial(cadena, matriz, n, inicioX, inicioY, finX, finY);
                 }
             }
         }
