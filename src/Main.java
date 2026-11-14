@@ -35,6 +35,8 @@ public class Main {
                             o++;
                         } else if (cadena.charAt(t) == 'X') {
                             matriz[i][l] = cadena.charAt(t);
+                            int finX=l; // guarda la posicion en X del fin
+                            int finY=l; // guarda la posicion de Y del fin
                             x++;
                         } else {
                             sirve = false; // si tiene otro caracter
