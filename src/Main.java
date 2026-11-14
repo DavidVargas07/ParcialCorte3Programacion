@@ -10,7 +10,7 @@ public class Main {
         if (n < 3) {
             System.out.print("n debe ser mayor o igual a 3"); // evaluo que n cumpla con n>=3
         } else {
-            char matriz[][] = new char[n][n]; // cree una matriz de nxn
+            char[][] matriz = new char[n][n]; // cree una matriz de nxn
             System.out.print("Cadena: ");
             String cadena = kb.nextLine(); // se pregunta la cadena de texto para hacer el laberinto
             int t = 0; // t va a servir para tomar la posicion de cada caracter en 'cadena'
