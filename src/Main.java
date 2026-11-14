@@ -59,7 +59,7 @@ public class Main {
             System.out.print("\u001B[48;5;208m\u001B[30m" + "| " + "\u001B[0m"); // imprimir los bordes izquierdos
             for (int l=0;l<n;l++) {
                 if (matriz[i][l] == ' ') {
-                    System.out.print("\u001B[47m\u001B[30m" + "   " + "\u001B[0m");
+                    System.out.print("\u001B[47m\u001B[30m" + "   " + "\u001B[0m"); // para imprimir los espacios
                 } else if (matriz[i][l] == '+') {
                     System.out.print("\u001B[42m\u001B[30m" + " + " + "\u001B[0m");
                 } else if (matriz[i][l] == 'O') {
