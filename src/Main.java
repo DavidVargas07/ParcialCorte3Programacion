@@ -73,7 +73,7 @@ public class Main {
         }
         System.out.print("\u001B[48;5;208m\u001B[30m" + "+-" + "\u001B[0m"); // imprimir la esquina inferior izquierda
         for (int i = 0; i < n; i++) {
-            System.out.print("\u001B[48;5;208m\u001B[30m" + "---" + "\u001B[0m");
+            System.out.print("\u001B[48;5;208m\u001B[30m" + "---" + "\u001B[0m"); // imprimir los '-' del medio
         }
         System.out.print("\u001B[48;5;208m\u001B[30m" + "-+" + "\u001B[0m");
     }
