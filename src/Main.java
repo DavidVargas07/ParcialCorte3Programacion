@@ -62,10 +62,8 @@ public class Main {
                     ImprimirMatriz.imprimir(matriz, n);
                     System.out.println();
                 } else {
-
-                    // Prioridad heurística - Distancia Manhattan
-                    ImprimirMatriz.imprimir(matriz, n);
-                    MatrizInicial.matriz_inicial(cadena, matriz, n, inicioX, inicioY, finX, finY);
+                    System.out.println("El programa ha finalizado.");
+                    System.out.println("Buen dia :)");
                 }
             }
         }
