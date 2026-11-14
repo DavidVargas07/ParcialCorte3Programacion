@@ -40,7 +40,7 @@ public class Main {
                         t++;
                     }
                 }
-                if (!sirve || o!=1 || x!=1) { // el texto no funciona
+                if (!sirve || o != 1 || x != 1) { // el texto no funciona
                     System.out.print("El texto no funciona. :(");
                 } else {
                     imprimir(matriz, n);
