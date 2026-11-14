@@ -48,10 +48,10 @@ public class Main {
             }
         }
     }
-    public static void imprimir(char[][] matriz) {
-        System.out.println("\u001B[48;5;208m\u001B[30m" + "+-" + "\u001B[0m");
-        for (int i=0;i<0;i++) {
-            System.out.println("\u001B[48;5;208m\u001B[30m" + "---" + "\u001B[0m");
+    public static void imprimir(char[][] matriz, int n) {
+        System.out.print("\u001B[48;5;208m\u001B[30m" + "+-" + "\u001B[0m");
+        for (int i = 0; i < n; i++) {
+            System.out.print("\u001B[48;5;208m\u001B[30m" + "---" + "\u001B[0m");
         }
             System.out.print("-+");
     }
