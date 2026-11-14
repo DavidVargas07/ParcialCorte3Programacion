@@ -54,5 +54,27 @@ public class Main {
             System.out.print("\u001B[48;5;208m\u001B[30m" + "---" + "\u001B[0m");
         }
         System.out.print("\u001B[48;5;208m\u001B[30m" + "-+" + "\u001B[0m");
+        System.out.println();
+        for (int i=0;i<n;i++) {
+            System.out.print("\u001B[48;5;208m\u001B[30m" + "| " + "\u001B[0m");
+            for (int l=0;l<n;l++) {
+                if (matriz[i][l] == ' ') {
+                    System.out.print("\u001B[47m\u001B[30m" + "   " + "\u001B[0m");
+                } else if (matriz[i][l] == '+') {
+                    System.out.print("\u001B[42m\u001B[30m" + " + " + "\u001B[0m");
+                } else if (matriz[i][l] == 'O') {
+                    System.out.print("\u001B[100m\u001B[31m" + " O " + "\u001B[0m");
+                } else if (matriz[i][l] == 'X') {
+                    System.out.print("\u001B[48;5;208m\u001B[30m" + " @ " + "\u001B[0m");
+                }
+            }
+            System.out.print("\u001B[48;5;208m\u001B[30m" + " |" + "\u001B[0m");
+            System.out.println();
+        }
+        System.out.print("\u001B[48;5;208m\u001B[30m" + "+-" + "\u001B[0m"); // imprimir la ultima linea (siguientes 4 lineas)
+        for (int i = 0; i < n; i++) {
+            System.out.print("\u001B[48;5;208m\u001B[30m" + "---" + "\u001B[0m");
+        }
+        System.out.print("\u001B[48;5;208m\u001B[30m" + "-+" + "\u001B[0m");
     }
 }
