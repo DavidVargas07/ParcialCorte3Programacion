@@ -17,6 +17,10 @@ public class Main {
             int o = 0; // o va a verificar que haya una sola O en el texto
             int x = 0; // x va a verificar que haya una sola X en el texto
             boolean sirve = true; // sirve para saber si puede continuar el programa despues de evaluar los caracteres
+            int inicioX=0;
+            int inicioY=0;
+            int finX=0;
+            int finY=0;
 
             // proceso de validacion de la cadena de texto
             if (cadena.length() != n * n) {
