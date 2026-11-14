@@ -7,7 +7,7 @@ public class Main {
         kb.nextLine(); // consume el salto de linea que deja nextInt()
 
         // proceso de validacion de n
-        if (n<3) {
+        if (n < 3) {
             System.out.print("n debe ser mayor o igual a 3"); // evaluo que n cumpla con n>=3
         } else {
             char matriz[][] = new char[n][n]; // cree una matriz de nxn
