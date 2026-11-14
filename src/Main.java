@@ -34,8 +34,8 @@ public class Main {
                             matriz[i][l] = cadena.charAt(t);
                         } else if (cadena.charAt(t) == 'O') {
                             matriz[i][l] = cadena.charAt(t);
-                            int inicioX=l; // guarda la posicion en X del inicio
-                            int inicioY=l; // guarda la posicion de Y del inicio
+                            inicioX=l; // guarda la posicion en X del inicio
+                            inicioY=i; // guarda la posicion de Y del inicio
                             o++;
                         } else if (cadena.charAt(t) == 'X') {
                             matriz[i][l] = cadena.charAt(t);
