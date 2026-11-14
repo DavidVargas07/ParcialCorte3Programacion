@@ -12,7 +12,7 @@ public class Main {
         } else {
             char[][] matriz = new char[n][n]; // cree una matriz de nxn
             System.out.print("Cadena: ");
-            String cadena = kb.nextLine(); // se pregunta la cadena de texto para hacer el laberinto
+            cadena = kb.nextLine(); // se pregunta la cadena de texto para hacer el laberinto
             int t = 0; // t va a servir para tomar la posicion de cada caracter en 'cadena'
             int o = 0; // o va a verificar que haya una sola O en el texto
             int x = 0; // x va a verificar que haya una sola X en el texto
