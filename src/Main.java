@@ -8,8 +8,16 @@ public class Main {
         String cadena = "XXX"; // inicializar la cadena
 
         // proceso de validacion de n
-        if (n < 3) {
-            System.out.print("n debe ser mayor o igual a 3"); // evaluo que n cumpla con n>=3
+        while (n < 3 && n!=0) {
+            System.out.println("n debe ser mayor o igual a 3"); // evaluo que n cumpla con n>=3
+            System.out.println("Para acabar el programa, escriba 0"); // se le da la opcion al usuario de acabrlo o no
+            System.out.print("Numero n: ");
+            n = kb.nextInt(); // se pregunta n, siendo la anchura y altura del laberinto
+            System.out.println();
+        }
+        if (n==0) {
+            System.out.println("El programa ha finalizado.");
+            System.out.println("Buen dia :)");
         } else {
             char[][] matriz = new char[n][n]; // cree una matriz de nxn
             System.out.print("Cadena: ");
