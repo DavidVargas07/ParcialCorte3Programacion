@@ -22,8 +22,9 @@ public class Main {
             char[][] matriz = new char[n][n]; // cree una matriz de nxn
             System.out.print("Cadena: ");
             cadena = kb.nextLine(); // se pregunta la cadena de texto para hacer el laberinto
-            boolean[] sirve = new boolean[1]; // sirve[0] dice si la cadena es valida (arreglo para que el metodo lo pueda cambiar)
-            int[] pos = new int[4]; // posiciones: pos[0]=inicioX, pos[1]=inicioY, pos[2]=finX, pos[3]=finY
+            boolean[] sirve = new boolean[1]; // el booleano 'sirve' evalua si sirve o no
+            int[] pos = new int[4]; // guarda las posiciones de el inicio y final ;
+            // posiciones: pos[0]=inicioX, pos[1]=inicioY, pos[2]=finX, pos[3]=finY
 
             // proceso de validacion de la longitud de la cadena de texto
             while ((cadena.length() != n * n) && cadena.length()!=1) { // no sale hasta que el usuario haya escrito la cadena bien, o una cadena de un caracter
