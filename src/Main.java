@@ -31,8 +31,8 @@ public class Main {
                         } else if (cadena.charAt(t) == 'O') {
                             matriz[i][l] = cadena.charAt(t);
                             o++;
-                        } else if (cadena.charAt(t)=='X') {
-                            matriz[i][l]=cadena.charAt(t);
+                        } else if (cadena.charAt(t) == 'X') {
+                            matriz[i][l] = cadena.charAt(t);
                             x++;
                         } else {
                             sirve = false; // si tiene otro caracter
