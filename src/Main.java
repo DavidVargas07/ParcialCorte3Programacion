@@ -91,6 +91,7 @@ public class Main {
         System.out.print("\u001B[48;5;208m\u001B[30m" + "-+" + "\u001B[0m"); // imprimir la esquina inferior derecha
     }
 
+    //volver a traer la matriz original despues de evaluar cada metodo
     public static void matriz_inicial(String cadena, char[][] matriz, int t, int n, int inicioX, int inicioY, int finX, int finY) {
         for (int i = 0; i < n; i++) { // evaluar que el texto tenga los caracteres y su cantidad correspondiente e introducirlos en la matriz
             for (int l = 0; l < n; l++) {
