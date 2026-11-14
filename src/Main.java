@@ -68,7 +68,7 @@ public class Main {
                     System.out.print("\u001B[48;5;208m\u001B[30m" + " @ " + "\u001B[0m"); // para imprimir el final
                 }
             }
-            System.out.print("\u001B[48;5;208m\u001B[30m" + " |" + "\u001B[0m");
+            System.out.print("\u001B[48;5;208m\u001B[30m" + " |" + "\u001B[0m"); // imprimir los bordes derechos
             System.out.println();
         }
         System.out.print("\u001B[48;5;208m\u001B[30m" + "+-" + "\u001B[0m"); // imprimir la ultima linea (siguientes 4 lineas)
