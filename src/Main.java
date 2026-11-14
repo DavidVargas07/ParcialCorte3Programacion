@@ -31,34 +31,36 @@ public class Main {
             int finX = 0; // medir la posicion en X del fin
             int finY = 0; // medir la posicion en Y del fin
 
-            // proceso de validacion de la cadena de texto
-            if (cadena.length() != n * n) {
-                System.out.print("La cadena no cumple con la longitud. :("); // evaluo si la cadena cumple la longitud
-            } else {
-                for (int i = 0; i < n; i++) { // evaluar que el texto tenga los caracteres y su cantidad correspondiente e introducirlos en la matriz
-                    for (int l = 0; l < n; l++) {
-                        if (cadena.charAt(t) == ' ') {
-                            matriz[i][l] = cadena.charAt(t);
-                        } else if (cadena.charAt(t) == '+') {
-                            matriz[i][l] = cadena.charAt(t);
-                        } else if (cadena.charAt(t) == 'O') {
-                            matriz[i][l] = cadena.charAt(t);
-                            inicioX = l; // guarda la posicion en X del inicio
-                            inicioY = i; // guarda la posicion de Y del inicio
-                            o++;
-                        } else if (cadena.charAt(t) == 'X') {
-                            matriz[i][l] = cadena.charAt(t);
-                            finX = l; // guarda la posicion en X del fin
-                            finY = i; // guarda la posicion de Y del fin
-                            x++;
-                        } else {
-                            sirve = false; // si tiene otro caracter
-                        }
-                        t++;
+            // proceso de validacion de la longitud de la cadena de texto
+            while ((cadena.length() != n * n) && cadena.length()!=1) { // no sale hasta que el usuario haya escrito la cadena bien, o una cadena de un caracter
+                System.out.println("La cadena no cumple con la longitud. :("); // evaluo si la cadena cumple la longitud
+                System.out.println("Para acabar el programa, escriba un solo caracter de eleccion.");
+                System.out.print("Cadena: ");
+                cadena = kb.nextLine();
+            }
+            if (cadena.length()==1) { // el usuario quiere salir del programa
+                System.out.println("El programa ha finalizado.");
+                System.out.println("Buen dia :)");
+            }
+            if (cadena.length()==n*n) { // se cumple con la longitud requerida
+                NoTocarComprobar.No_Tocar_Comprobar(n, cadena, matriz, sirve, pos);
+                while (!sirve[0] && w) { // algun caracter de la cadena no es correcto y el usuario no ha salido
+                    System.out.println("La cadena debe tener solamente espacios ( ), paredes (+), un inicio (O) y un final (X)"); // evaluo que n cumpla con n>=3
+                    System.out.println("Para acabar el programa, presione ENTER"); // se le da la opcion al usuario de acabrlo o no
+                    System.out.print("Cadena: ");
+                    cadena = kb.nextLine(); // vuelve a preguntar la cadena
+                    System.out.println();
+                    if (cadena.isEmpty()) {
+                        w=false; // el usuario quiere salir
+                    } else if (cadena.length() != n * n) {
+                        System.out.println("La cadena no cumple con la longitud. :(");
+                    } else {
+                        NoTocarComprobar.No_Tocar_Comprobar(n, cadena, matriz, sirve, pos);
                     }
                 }
-                if (!sirve || o != 1 || x != 1) { // el texto no funciona
-                    System.out.print("El texto no funciona. :(");
+                if (sirve[0]) {
+                    ImprimirMatriz.imprimir(matriz, n);
+                    System.out.println();
                 } else {
 
                     // Prioridad heurística - Distancia Manhattan
