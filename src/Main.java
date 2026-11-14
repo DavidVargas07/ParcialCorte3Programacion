@@ -54,6 +54,5 @@ public class Main {
             System.out.print("\u001B[48;5;208m\u001B[30m" + "---" + "\u001B[0m");
         }
         System.out.print("\u001B[48;5;208m\u001B[30m" + "-+" + "\u001B[0m");
-        
     }
 }
