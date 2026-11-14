@@ -24,12 +24,12 @@ public class Main {
             } else {
                 for (int i = 0; i < n; i++) { // evaluar que el texto tenga los caracteres y su cantidad correspondiente e introducirlos en la matriz
                     for (int l = 0; l < n; l++) {
-                        if (cadena.charAt(t)==' ') {
-                            matriz[i][l]=cadena.charAt(t);
-                        } else if (cadena.charAt(t)=='+') {
-                            matriz[i][l]=cadena.charAt(t);
-                        } else if (cadena.charAt(t)=='O') {
-                            matriz[i][l]=cadena.charAt(t);
+                        if (cadena.charAt(t) == ' ') {
+                            matriz[i][l] = cadena.charAt(t);
+                        } else if (cadena.charAt(t) == '+') {
+                            matriz[i][l] = cadena.charAt(t);
+                        } else if (cadena.charAt(t) == 'O') {
+                            matriz[i][l] = cadena.charAt(t);
                             o++;
                         } else if (cadena.charAt(t)=='X') {
                             matriz[i][l]=cadena.charAt(t);
