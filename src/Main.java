@@ -28,7 +28,7 @@ public class Main {
             int[] pos = new int[4]; // guarda las posiciones de el inicio y final (cada posicion se explica donde se usa por primera vez, en NoTocarComprobar)
 
             // proceso de validacion de la longitud de la cadena de texto
-            while ((cadena.length() != n * n) && cadena.length()!=1) { // no sale hasta que el usuario haya escrito la cadena bien, o una cadena de un caracter
+            while ((cadena.length() != anchoAlto * anchoAlto) && cadena.length()!=1) { // no sale hasta que el usuario haya escrito la cadena bien, o una cadena de un caracter
                 System.out.println("La cadena no cumple con la longitud. :("); // evaluo si la cadena cumple la longitud
                 System.out.println("Para acabar el programa, escriba un solo caracter de eleccion.");
                 System.out.print("Cadena: ");
