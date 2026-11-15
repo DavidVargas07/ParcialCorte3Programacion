@@ -50,7 +50,7 @@ public class Main {
                     } else if (cadena.length() != anchoAlto * anchoAlto) {
                         System.out.println("La cadena no cumple con la longitud. :(");
                     } else {
-                        NoTocarComprobar.No_Tocar_Comprobar(n, cadena, matriz, sirve, pos);
+                        NoTocarComprobar.No_Tocar_Comprobar(anchoAlto, cadena, matriz, sirve, pos);
                     }
                 }
 
