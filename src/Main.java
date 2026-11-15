@@ -21,7 +21,7 @@ public class Main {
             System.out.println("El programa ha finalizado.");
             System.out.println("Buen dia :)");
         } else {
-            char[][] matriz = new char[n][n]; // cree una matriz de nxn
+            char[][] matriz = new char[anchoAlto][anchoAlto]; // cree una matriz de nxn
             System.out.print("Cadena: ");
             cadena = kb.nextLine(); // se pregunta la cadena de texto para hacer el laberinto
             boolean[] sirve = new boolean[1]; // el booleano 'sirve' evalua si sirve o no
