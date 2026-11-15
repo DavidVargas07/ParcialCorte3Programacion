@@ -25,8 +25,7 @@ public class Main {
             System.out.print("Cadena: ");
             cadena = kb.nextLine(); // se pregunta la cadena de texto para hacer el laberinto
             boolean[] sirve = new boolean[1]; // el booleano 'sirve' evalua si sirve o no
-            int[] pos = new int[4]; // guarda las posiciones de el inicio y final ;
-            // posiciones: pos[0]=inicioX, pos[1]=inicioY, pos[2]=finX, pos[3]=finY
+            int[] pos = new int[4]; // guarda las posiciones de el inicio y final (cada posicion se explica donde se usa por primera vez, en NoTocarComprobar)
 
             // proceso de validacion de la longitud de la cadena de texto
             while ((cadena.length() != n * n) && cadena.length()!=1) { // no sale hasta que el usuario haya escrito la cadena bien, o una cadena de un caracter
