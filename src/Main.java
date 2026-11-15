@@ -6,6 +6,7 @@ public class Main {
         int anchoAlto = kb.nextInt(); // se pregunta anchoAlto, siendo la anchura y altura del laberinto
         kb.nextLine(); // consume el salto de linea que deja nextInt()
         String cadena = "XXX"; // inicializar la cadena
+        boolean w = true; // saber si el usuario quiere salir o no en la cadena (linea 50)
 
         // proceso de validacion de n
         while (n < 3 && n!=0) {
