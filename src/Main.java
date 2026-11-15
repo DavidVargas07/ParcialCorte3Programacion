@@ -38,8 +38,8 @@ public class Main {
                 System.out.println("El programa ha finalizado.");
                 System.out.println("Buen dia :)");
             }
-            if (cadena.length()==n*n) { // se cumple con la longitud requerida
-                NoTocarComprobar.No_Tocar_Comprobar(n, cadena, matriz, sirve, pos);
+            if (cadena.length()==anchoAlto*anchoAlto) { // se cumple con la longitud requerida
+                NoTocarComprobar.No_Tocar_Comprobar(anchoAlto, cadena, matriz, sirve, pos);
                 while (!sirve[0] && w) { // algun caracter de la cadena no es correcto y el usuario no ha salido
                     System.out.println("La cadena debe tener solamente espacios ( ), paredes (+), un inicio (O) y un final (X)"); // evaluo que n cumpla con n>=3
                     System.out.println("Para acabar el programa, presione ENTER"); // se le da la opcion al usuario de acabrlo o no
