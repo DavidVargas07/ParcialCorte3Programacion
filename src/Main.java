@@ -53,8 +53,10 @@ public class Main {
                         NoTocarComprobar.No_Tocar_Comprobar(n, cadena, matriz, sirve, pos);
                     }
                 }
-                if (sirve[0]) {
-                    ImprimirMatriz.imprimir(matriz, n);
+
+                if (sirve[0]) { // lista booleana de un solo caracter para saber si la cadena es valida
+                    System.out.println();
+                    ImprimirMatriz.imprimir(matriz, anchoAlto); // ejecuta la funcion para imprimir la matriz
                     System.out.println();
                     System.out.println();
 
