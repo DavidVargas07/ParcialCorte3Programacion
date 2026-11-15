@@ -12,8 +12,9 @@ public class Main {
         while (anchoAlto < 3 && anchoAlto!=0) {
             System.out.println("El ancho y alto debe ser mayor o igual a 3"); // evaluo que anchoAlto cumpla con anchoAlto>=3
             System.out.println("Para acabar el programa, escriba 0"); // se le da la opcion al usuario de acabrlo o no
-            System.out.print("Numero n: ");
-            n = kb.nextInt(); // se pregunta n, siendo la anchura y altura del laberinto
+            System.out.print("Numero de anchura y altura: ");
+            anchoAlto = kb.nextInt(); // se pregunta anchoAlto, siendo la anchura y altura del laberinto
+            kb.nextLine();
             System.out.println();
         }
         if (n==0) {
