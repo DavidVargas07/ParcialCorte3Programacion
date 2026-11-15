@@ -8,9 +8,9 @@ public class Main {
         String cadena = "XXX"; // inicializar la cadena
         boolean w = true; // saber si el usuario quiere salir o no en la cadena (linea 50)
 
-        // proceso de validacion de n
-        while (n < 3 && n!=0) {
-            System.out.println("n debe ser mayor o igual a 3"); // evaluo que n cumpla con n>=3
+        // proceso de validacion de anchoAlto
+        while (anchoAlto < 3 && anchoAlto!=0) {
+            System.out.println("El ancho y alto debe ser mayor o igual a 3"); // evaluo que anchoAlto cumpla con anchoAlto>=3
             System.out.println("Para acabar el programa, escriba 0"); // se le da la opcion al usuario de acabrlo o no
             System.out.print("Numero n: ");
             n = kb.nextInt(); // se pregunta n, siendo la anchura y altura del laberinto
