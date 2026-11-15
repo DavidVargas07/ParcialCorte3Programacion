@@ -17,7 +17,7 @@ public class Main {
             kb.nextLine();
             System.out.println();
         }
-        if (n==0) {
+        if (anchoAlto==0) {
             System.out.println("El programa ha finalizado.");
             System.out.println("Buen dia :)");
         } else {
