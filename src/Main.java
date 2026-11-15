@@ -47,7 +47,7 @@ public class Main {
                     System.out.println();
                     if (cadena.isEmpty()) {
                         w=false; // el usuario quiere salir
-                    } else if (cadena.length() != n * n) {
+                    } else if (cadena.length() != anchoAlto * anchoAlto) {
                         System.out.println("La cadena no cumple con la longitud. :(");
                     } else {
                         NoTocarComprobar.No_Tocar_Comprobar(n, cadena, matriz, sirve, pos);
