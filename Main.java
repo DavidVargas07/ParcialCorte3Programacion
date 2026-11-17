@@ -1,4 +1,4 @@
-import java.util.Scanner:
+import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         //esto es solo un codigo para ver mas o menos como es la base del codigo, no creo que funcione como está
