@@ -69,9 +69,27 @@ public class Main {
             return true; // Encontro la salida
         }
 
-        //Al no encontrar salida por aquí, libera la celda para otras rutas
-        visitada[f][c] = false;
-        retrocesos = retrocesos + 1;
-        return false;
+        // Marca la celda en la memoria global
+        visitada[f][c] = true; // Marca la celda para no volver a explorarla nunca
+        int k = 0; // Indice del movimiento que se va a probar (0 a 3)
+
+        while (k < 4) { // Prueba los 4 movimientos posibles
+            int nf = f + df[k]; // Calcula la fila del vecino
+            int nc = c + dc[k]; // Calcula la columna del vecino
+
+            if (explorar(nf, nc)) { // Llama a explorar desde el vecino (recursion)
+                pasos = pasos + 1; // Si por ahi se llego a X, suma un paso a la ruta
+                if (matriz[f][c] == ' ') { // Revisa si la celda es un espacio libre (no es la O)
+                    matriz[f][c] = 'o'; // Marca la celda con 'o' para mostrar la ruta
+                }
+                return true; // Avisa a la llamada anterior que si hay camino
+            }
+            k = k + 1; // Pasa al siguiente movimiento
+        }
+
+        // Al no encontrar salida por aqui, la celda queda marcada en visitada (memoria global)
+        // para que ninguna otra ruta la vuelva a explorar
+        retrocesos = retrocesos + 1; // Suma un retroceso porque este camino no tiene salida
+        return false; // Avisa a la llamada anterior que por aqui no hay camino
     }
 }
