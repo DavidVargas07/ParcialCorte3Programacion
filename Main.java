@@ -40,9 +40,16 @@ public class Main {
             System.out.println("No hay salida"); // Avisa que no existe salida
         }
 
-        // Marca la celda como parte de la ruta actual
-        visitada[f][c] = true;
-        int k = 0;
+        for (int f = 0; f < n; f++) { // Recorre cada fila de la matriz
+            for (int c = 0; c < n; c++) { // Recorre cada columna de la fila
+                System.out.print("[" + matriz[f][c] + "]"); // Imprime la celda entre corchetes
+            }
+            System.out.println(); // Salta a la siguiente linea al terminar la fila
+        }
+        System.out.println("Llamadas: " + llamadas); // Muestra cuantas llamadas se hicieron
+        System.out.println("Retrocesos: " + retrocesos); // Muestra cuantos retrocesos hubo
+        System.out.println("Maximo teorico con memoria: " + (4 * n * n + 1) + " llamadas"); // Cota O(n^2): 4 vecinos por celda + la llamada inicial
+    }
 
         while (k < 4) {
             int nf = f + df[k];
