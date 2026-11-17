@@ -20,10 +20,16 @@ public class Main {
         System.out.print("Ingrese el laberinto (" + (n * n) + " caracteres): "); // Pide el laberinto como una sola cadena
         String cadena = entrada.nextLine(); // Lee la cadena completa del laberinto
 
-        // Verifica si está fuera, es pared '+' o si ya forma parte de la ruta actual
-        if (f < 0 || f >= matriz.length || c < 0 || c >= matriz[0].length ||
-                matriz[f][c] == '+' || visitada[f][c]) {
-            return false;
+        matriz = new char[n][n]; // Crea la matriz de n x n para el laberinto
+        visitada = new boolean[n][n]; // Crea la matriz de visitadas (todas empiezan en false)
+        int filaO = 0; // Guardara la fila donde esta el origen O
+        int colO = 0; // Guardara la columna donde esta el origen O
+        for (int i = 0; i < n * n; i++) { // Recorre cada caracter de la cadena
+            matriz[i / n][i % n] = cadena.charAt(i); // Pone el caracter en su fila (i / n) y columna (i % n)
+            if (cadena.charAt(i) == 'O') { // Revisa si el caracter es el origen O
+                filaO = i / n; // Guarda la fila del origen
+                colO = i % n; // Guarda la columna del origen
+            }
         }
 
         if (matriz[f][c] == 'X') {
