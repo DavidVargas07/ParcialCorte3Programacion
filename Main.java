@@ -32,8 +32,12 @@ public class Main {
             }
         }
 
-        if (matriz[f][c] == 'X') {
-            return true;
+        if (explorar(filaO, colO)) { // Empieza a buscar la salida desde el origen O
+            System.out.println("Ruta encontrada en " + pasos + " pasos"); // Muestra que si encontro la salida
+        } else if (limite) { // Si no la encontro porque se acabaron las llamadas
+            System.out.println("Limite alcanzado"); // Avisa que se llego al limite
+        } else { // Si no hay ningun camino posible
+            System.out.println("No hay salida"); // Avisa que no existe salida
         }
 
         // Marca la celda como parte de la ruta actual
