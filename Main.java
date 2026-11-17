@@ -54,14 +54,19 @@ public class Main {
     static boolean explorar(int f, int c) { // Metodo recursivo: devuelve true si desde (f, c) se llega a X
         llamadas = llamadas + 1; // Suma una llamada al contador
 
-            if (explorar(nf, nc)) {
-                pasos = pasos + 1;
-                if (matriz[f][c] == ' ') {
-                    matriz[f][c] = 'o';
-                }
-                return true;
-            }
-            k = k + 1;
+        if (llamadas > LIMITE) { // Revisa si ya se paso el limite de llamadas
+            limite = true; // Marca que se alcanzo el limite
+            return false; // Detiene la busqueda por este camino
+        }
+
+        // Verifica si esta fuera, es pared '+' o si ya fue visitada antes
+        if (f < 0 || f >= matriz.length || c < 0 || c >= matriz[0].length || // Revisa si la posicion esta fuera del laberinto
+                matriz[f][c] == '+' || visitada[f][c]) { // Revisa si es pared o si ya fue explorada (memoria)
+            return false; // No se puede pasar por esta celda
+        }
+
+        if (matriz[f][c] == 'X') { // Revisa si llegamos a la salida X
+            return true; // Encontro la salida
         }
 
         //Al no encontrar salida por aquí, libera la celda para otras rutas
