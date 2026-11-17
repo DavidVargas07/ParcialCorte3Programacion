@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
         Scanner kb = new Scanner(System.in);
@@ -10,7 +9,7 @@ public class Main {
         boolean w = true; // saber si el usuario quiere salir o no en la cadena (linea 50)
 
         // proceso de validacion de anchoAlto
-        while (anchoAlto < 3 && anchoAlto != 0) {
+        while (anchoAlto < 3 && anchoAlto!=0) {
             System.out.println("El ancho y alto debe ser mayor o igual a 3"); // evaluo que anchoAlto cumpla con anchoAlto>=3
             System.out.println("Para acabar el programa, escriba 0"); // se le da la opcion al usuario de acabrlo o no
             System.out.print("Numero de anchura y altura: ");
@@ -18,7 +17,7 @@ public class Main {
             kb.nextLine();
             System.out.println();
         }
-        if (anchoAlto == 0) {
+        if (anchoAlto==0) {
             System.out.println("El programa ha finalizado.");
             System.out.println("Buen dia :)");
         } else {
@@ -29,17 +28,17 @@ public class Main {
             int[] pos = new int[4]; // guarda las posiciones de el inicio y final (cada posicion se explica donde se usa por primera vez, en NoTocarComprobar)
 
             // proceso de validacion de la longitud de la cadena de texto
-            while ((cadena.length() != anchoAlto * anchoAlto) && cadena.length() != 1) { // no sale hasta que el usuario haya escrito la cadena bien, o una cadena de un caracter
+            while ((cadena.length() != anchoAlto * anchoAlto) && cadena.length()!=1) { // no sale hasta que el usuario haya escrito la cadena bien, o una cadena de un caracter
                 System.out.println("La cadena no cumple con la longitud. :("); // evaluo si la cadena cumple la longitud
                 System.out.println("Para acabar el programa, escriba un solo caracter de eleccion.");
                 System.out.print("Cadena: ");
                 cadena = kb.nextLine();
             }
-            if (cadena.length() == 1) { // el usuario quiere salir del programa
+            if (cadena.length()==1) { // el usuario quiere salir del programa
                 System.out.println("El programa ha finalizado.");
                 System.out.println("Buen dia :)");
             }
-            if (cadena.length() == anchoAlto * anchoAlto) { // se cumple con la longitud requerida
+            if (cadena.length()==anchoAlto*anchoAlto) { // se cumple con la longitud requerida
                 NoTocarComprobar.No_Tocar_Comprobar(anchoAlto, cadena, matriz, sirve, pos);
                 while (!sirve[0] && w) { // algun caracter de la cadena no es correcto y el usuario no ha salido
                     System.out.println("La cadena debe tener solamente espacios ( ), paredes (+), un inicio (O) y un final (X)"); // evaluo que anchoAlto cumpla con anchoAlto>=3
@@ -48,7 +47,7 @@ public class Main {
                     cadena = kb.nextLine(); // vuelve a preguntar la cadena
                     System.out.println();
                     if (cadena.isEmpty()) {
-                        w = false; // el usuario quiere salir
+                        w=false; // el usuario quiere salir
                     } else if (cadena.length() != anchoAlto * anchoAlto) {
                         System.out.println("La cadena no cumple con la longitud. :(");
                     } else {
@@ -141,9 +140,9 @@ public class Main {
         }
         System.out.print("\u001B[48;5;208m\u001B[30m" + "-+" + "\u001B[0m"); // imprimir la esquina superior derecha
         System.out.println();
-        for (int i = 0; i < n; i++) {
+        for (int i=0;i<n;i++) {
             System.out.print("\u001B[48;5;208m\u001B[30m" + "| " + "\u001B[0m"); // imprimir los bordes izquierdos
-            for (int l = 0; l < n; l++) {
+            for (int l=0;l<n;l++) {
                 if (matriz[i][l] == ' ') {
                     System.out.print("\u001B[47m\u001B[30m" + "   " + "\u001B[0m"); // para imprimir los espacios
                 } else if (matriz[i][l] == '+') {
