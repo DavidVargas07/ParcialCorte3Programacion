@@ -51,9 +51,8 @@ public class Main {
         System.out.println("Maximo teorico con memoria: " + (4 * n * n + 1) + " llamadas"); // Cota O(n^2): 4 vecinos por celda + la llamada inicial
     }
 
-        while (k < 4) {
-            int nf = f + df[k];
-            int nc = c + dc[k];
+    static boolean explorar(int f, int c) { // Metodo recursivo: devuelve true si desde (f, c) se llega a X
+        llamadas = llamadas + 1; // Suma una llamada al contador
 
             if (explorar(nf, nc)) {
                 pasos = pasos + 1;
