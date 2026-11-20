@@ -61,7 +61,7 @@ public class Manhattan {
                 if (orden[k] == 0) {
                     nf = fila - 1; // arriba
                 } else if (orden[k] == 1) {
-                    nf = fila + 1; // cambia nf para que el siguiente movimiento sea para abajo
+                    nf = fila + 1; // abajo
                 } else if (orden[k] == 2) {
                     nc = col - 1; // cambia cf para que el siguiente movimiento sea para izquierda
                 } else {
