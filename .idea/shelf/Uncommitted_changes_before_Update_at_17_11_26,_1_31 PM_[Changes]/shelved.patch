@@ -1,0 +1,348 @@
+Index: Main.java
+===================================================================
+diff --git a/Main.java b/Main.java
+deleted file mode 100644
+--- a/Main.java	(revision 30a9f14169c422bbeaf88b39decc65d4ff2aa18f)
++++ /dev/null	(revision 30a9f14169c422bbeaf88b39decc65d4ff2aa18f)
+@@ -1,45 +0,0 @@
+-import java.util.Scanner:
+-public class Main {
+-    public static void main(String[] args) {
+-        //esto es solo un codigo para ver mas o menos como es la base del codigo, no creo que funcione como está
+-        llamadas = llamadas + 1;
+-
+-        if (llamadas > LIMITE) {
+-            limite = true;
+-            return false;
+-        }
+-
+-        // Verifica si está fuera, es pared '+' o si ya forma parte de la ruta actual
+-        if (f < 0 || f >= matriz.length || c < 0 || c >= matriz[0].length ||
+-                matriz[f][c] == '+' || visitada[f][c]) {
+-            return false;
+-        }
+-
+-        if (matriz[f][c] == 'X') {
+-            return true;
+-        }
+-
+-        // Marca la celda como parte de la ruta actual
+-        visitada[f][c] = true;
+-        int k = 0;
+-
+-        while (k < 4) {
+-            int nf = f + df[k];
+-            int nc = c + dc[k];
+-
+-            if (explorar(nf, nc)) {
+-                pasos = pasos + 1;
+-                if (matriz[f][c] == ' ') {
+-                    matriz[f][c] = 'o';
+-                }
+-                return true;
+-            }
+-            k = k + 1;
+-        }
+-
+-        //Al no encontrar salida por aquí, libera la celda para otras rutas
+-        visitada[f][c] = false;
+-        retrocesos = retrocesos + 1;
+-        return false;
+-    }
+-}
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"e45bdc9c-11b8-4ad9-983d-79c71b73b0c4\" name=\"Changes\" comment=\"\">\n      <change afterPath=\"$PROJECT_DIR$/.idea/claudeCodeEditorTabs.xml\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_11_26,_7_56 PM_[Changes]/shelved.patch\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_11_26__7_56PM__Changes_.xml\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_11_26,_9_31 AM_[Changes]/shelved.patch\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_11_26__9_31AM__Changes_.xml\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_11_26,_7_31 AM_[Changes]/shelved.patch\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_11_26__7_31AM__Changes_.xml\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/out/production/ProyectoProgramacionCorte3/Main.class\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/.name\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/modules.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/modules.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/ParcialCorte3Programacion.iml\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/Main.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Main.java\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"GitHubPullRequestSearchHistory\">{\n  &quot;lastFilter&quot;: {\n    &quot;state&quot;: &quot;OPEN&quot;,\n    &quot;assignee&quot;: &quot;Patata55&quot;\n  }\n}</component>\n  <component name=\"GithubPullRequestsUISettings\">{\n  &quot;selectedUrlAndAccountId&quot;: {\n    &quot;url&quot;: &quot;https://github.com/DavidVargas07/ParcialCorte3Programacion&quot;,\n    &quot;accountId&quot;: &quot;33290db7-fee9-43ef-886d-e80e26ec6194&quot;\n  }\n}</component>\n  <component name=\"ProjectColorInfo\">{\n  &quot;associatedIndex&quot;: 4,\n  &quot;fromUser&quot;: false\n}</component>\n  <component name=\"ProjectId\" id=\"3LvrgkfMOUUU5OMwDJOm7PfZoqp\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;Application.Main.executor&quot;: &quot;Run&quot;,\n    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,\n    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,\n    &quot;git-widget-placeholder&quot;: &quot;main&quot;,\n    &quot;git.auto.fetch.suggestion.counter&quot;: &quot;1&quot;,\n    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/Donut/OneDrive/Documentos/Achivos/Unisabana/Soche/ParcialCorte3Programacion&quot;,\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\n    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,\n    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,\n    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;\n  }\n}</component>\n  <component name=\"RunManager\">\n    <configuration default=\"true\" type=\"JetRunConfigurationType\">\n      <module name=\"ParcialCorte3Programacion\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration default=\"true\" type=\"KotlinStandaloneScriptRunConfigurationType\">\n      <module name=\"ParcialCorte3Programacion\" />\n      <option name=\"filePath\" />\n      <method v=\"2\" />\n    </configuration>\n    <configuration default=\"true\" type=\"PythonConfigurationType\" factoryName=\"Python\">\n      <module name=\"ParcialCorte3Programacion\" />\n      <option name=\"ENV_FILES\" value=\"\" />\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\n      <option name=\"PARENT_ENVS\" value=\"true\" />\n      <envs>\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\n      </envs>\n      <option name=\"SDK_HOME\" value=\"\" />\n      <option name=\"WORKING_DIRECTORY\" value=\"\" />\n      <option name=\"IS_MODULE_SDK\" value=\"false\" />\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\n      <option name=\"DEBUG_JUST_MY_CODE\" value=\"false\" />\n      <option name=\"RUN_TOOL\" value=\"\" />\n      <option name=\"SCRIPT_NAME\" value=\"\" />\n      <option name=\"PARAMETERS\" value=\"\" />\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\n      <option name=\"MODULE_MODE\" value=\"false\" />\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\n      <option name=\"INPUT_FILE\" value=\"\" />\n      <method v=\"2\" />\n    </configuration>\n    <configuration default=\"true\" type=\"Tox\" factoryName=\"Tox\">\n      <module name=\"ParcialCorte3Programacion\" />\n      <option name=\"ENV_FILES\" value=\"\" />\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\n      <option name=\"PARENT_ENVS\" value=\"true\" />\n      <option name=\"SDK_HOME\" value=\"\" />\n      <option name=\"WORKING_DIRECTORY\" value=\"\" />\n      <option name=\"IS_MODULE_SDK\" value=\"false\" />\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\n      <option name=\"DEBUG_JUST_MY_CODE\" value=\"false\" />\n      <option name=\"RUN_TOOL\" value=\"\" />\n      <method v=\"2\" />\n    </configuration>\n  </component>\n  <component name=\"SharedIndexes\">\n    <attachedChunks>\n      <set>\n        <option value=\"bundled-jdk-30f59d01ecdd-34e2839f716b-intellij.indexing.shared.core-IU-262.9437.185\" />\n        <option value=\"bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-IU-262.9437.185\" />\n      </set>\n    </attachedChunks>\n  </component>\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"e45bdc9c-11b8-4ad9-983d-79c71b73b0c4\" name=\"Changes\" comment=\"\" />\n      <created>1794345496474</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1794345496474</updated>\n    </task>\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"hola2\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"hola2\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 30a9f14169c422bbeaf88b39decc65d4ff2aa18f)
++++ b/.idea/workspace.xml	(date 1794940276082)
+@@ -5,26 +5,40 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="e45bdc9c-11b8-4ad9-983d-79c71b73b0c4" name="Changes" comment="">
+-      <change afterPath="$PROJECT_DIR$/.idea/claudeCodeEditorTabs.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_11_26,_7_56 PM_[Changes]/shelved.patch" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_11_26__7_56PM__Changes_.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_11_26,_9_31 AM_[Changes]/shelved.patch" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_11_26__9_31AM__Changes_.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_11_26,_7_31 AM_[Changes]/shelved.patch" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_11_26__7_31AM__Changes_.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/out/production/ProyectoProgramacionCorte3/Main.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/claudeCodeEditorTabs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/claudeCodeEditorTabs.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/ParcialCorte3Programacion.iml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Main.java" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/ParcialCorte3Programacion/Main.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/ProyectoProgramacionCorte3/Main.class" beforeDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+     <option name="LAST_RESOLUTION" value="IGNORE" />
++  </component>
++  <component name="FileTemplateManagerImpl">
++    <option name="RECENT_TEMPLATES">
++      <list>
++        <option value="Class" />
++      </list>
++    </option>
+   </component>
+   <component name="Git.Settings">
++    <excluded-from-favorite>
++      <branch-storage>
++        <map>
++          <entry type="LOCAL">
++            <value>
++              <list>
++                <branch-info repo="$PROJECT_DIR$" source="main" />
++              </list>
++            </value>
++          </entry>
++        </map>
++      </branch-storage>
++    </excluded-from-favorite>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+   <component name="GitHubPullRequestSearchHistory">{
+@@ -36,9 +50,12 @@
+   <component name="GithubPullRequestsUISettings">{
+   &quot;selectedUrlAndAccountId&quot;: {
+     &quot;url&quot;: &quot;https://github.com/DavidVargas07/ParcialCorte3Programacion&quot;,
+-    &quot;accountId&quot;: &quot;33290db7-fee9-43ef-886d-e80e26ec6194&quot;
++    &quot;accountId&quot;: &quot;30af76d2-c339-4b75-94ea-c271e32c45fd&quot;
+   }
+ }</component>
++  <component name="ProblemsViewState">
++    <option name="selectedTabId" value="CurrentFile" />
++  </component>
+   <component name="ProjectColorInfo">{
+   &quot;associatedIndex&quot;: 4,
+   &quot;fromUser&quot;: false
+@@ -51,10 +68,12 @@
+   <component name="PropertiesComponent">{
+   &quot;keyToString&quot;: {
+     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
++    &quot;Application.MainOpcion1.executor&quot;: &quot;Debug&quot;,
+     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
++    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+     &quot;git.auto.fetch.suggestion.counter&quot;: &quot;1&quot;,
+@@ -62,65 +81,26 @@
+     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+     &quot;last_opened_file_path&quot;: &quot;C:/Users/Donut/OneDrive/Documentos/Achivos/Unisabana/Soche/ParcialCorte3Programacion&quot;,
+     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
++    &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,
+     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
++    &quot;node.js.selected.package.jshint&quot;: &quot;&quot;,
+     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
++    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/dave/Library/Mobile Documents/com~apple~CloudDocs/Universidad/ParcialCorte3Programacion/src/Main.java&quot;,
++    &quot;project.structure.last.edited&quot;: &quot;Facets&quot;,
+     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
++    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
++    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+   }
+ }</component>
+-  <component name="RunManager">
+-    <configuration default="true" type="JetRunConfigurationType">
+-      <module name="ParcialCorte3Programacion" />
+-      <method v="2">
+-        <option name="Make" enabled="true" />
+-      </method>
+-    </configuration>
+-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+-      <module name="ParcialCorte3Programacion" />
+-      <option name="filePath" />
+-      <method v="2" />
+-    </configuration>
+-    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+-      <module name="ParcialCorte3Programacion" />
+-      <option name="ENV_FILES" value="" />
+-      <option name="INTERPRETER_OPTIONS" value="" />
+-      <option name="PARENT_ENVS" value="true" />
+-      <envs>
+-        <env name="PYTHONUNBUFFERED" value="1" />
+-      </envs>
+-      <option name="SDK_HOME" value="" />
+-      <option name="WORKING_DIRECTORY" value="" />
+-      <option name="IS_MODULE_SDK" value="false" />
+-      <option name="ADD_CONTENT_ROOTS" value="true" />
+-      <option name="ADD_SOURCE_ROOTS" value="true" />
+-      <option name="DEBUG_JUST_MY_CODE" value="false" />
+-      <option name="RUN_TOOL" value="" />
+-      <option name="SCRIPT_NAME" value="" />
+-      <option name="PARAMETERS" value="" />
+-      <option name="SHOW_COMMAND_LINE" value="false" />
+-      <option name="EMULATE_TERMINAL" value="false" />
+-      <option name="MODULE_MODE" value="false" />
+-      <option name="REDIRECT_INPUT" value="false" />
+-      <option name="INPUT_FILE" value="" />
+-      <method v="2" />
+-    </configuration>
+-    <configuration default="true" type="Tox" factoryName="Tox">
+-      <module name="ParcialCorte3Programacion" />
+-      <option name="ENV_FILES" value="" />
+-      <option name="INTERPRETER_OPTIONS" value="" />
+-      <option name="PARENT_ENVS" value="true" />
+-      <option name="SDK_HOME" value="" />
+-      <option name="WORKING_DIRECTORY" value="" />
+-      <option name="IS_MODULE_SDK" value="false" />
+-      <option name="ADD_CONTENT_ROOTS" value="true" />
+-      <option name="ADD_SOURCE_ROOTS" value="true" />
+-      <option name="DEBUG_JUST_MY_CODE" value="false" />
+-      <option name="RUN_TOOL" value="" />
+-      <method v="2" />
+-    </configuration>
++  <component name="RecentsManager">
++    <key name="MoveFile.RECENT_KEYS">
++      <recent name="$PROJECT_DIR$/src" />
++    </key>
++    <key name="IntroduceConstantDialog.RECENTS_KEY">
++      <recent name="ImprimirMatriz" />
++    </key>
+   </component>
+   <component name="SharedIndexes">
+     <attachedChunks>
+@@ -155,7 +135,61 @@
+     </option>
+   </component>
+   <component name="VcsManagerConfiguration">
+-    <MESSAGE value="hola2" />
+-    <option name="LAST_COMMIT_MESSAGE" value="hola2" />
++    <MESSAGE value="llamar la funcion imprimir" />
++    <MESSAGE value="empezar a imprimir. primera linea" />
++    <MESSAGE value="imprimir primera linea" />
++    <MESSAGE value="la funcion imprimir esta completa" />
++    <MESSAGE value="comentario" />
++    <MESSAGE value="guarda la posicion en X y Y del inicio" />
++    <MESSAGE value="guarda la posicion en X y Y del fin" />
++    <MESSAGE value="declarar las variables" />
++    <MESSAGE value="correccion" />
++    <MESSAGE value=" correccion" />
++    <MESSAGE value="inicio de metodo Manhattan" />
++    <MESSAGE value="seguir" />
++    <MESSAGE value="comentarios" />
++    <MESSAGE value="volver a traer la matriz original despues de evaluar cada metodo" />
++    <MESSAGE value="reorganice todo" />
++    <MESSAGE value="nada" />
++    <MESSAGE value="mejor interfaz de usuario" />
++    <MESSAGE value="el programa no acaba hasta que el usuario quiera" />
++    <MESSAGE value="acaba" />
++    <MESSAGE value="el booleano 'sirve' evalua si sirve o no" />
++    <MESSAGE value="pos" />
++    <MESSAGE value="manhattan completo" />
++    <MESSAGE value="la cadena es valida?" />
++    <MESSAGE value="si" />
++    <MESSAGE value="." />
++    <option name="LAST_COMMIT_MESSAGE" value="." />
++  </component>
++  <component name="XDebuggerManager">
++    <breakpoint-manager>
++      <breakpoints>
++        <line-breakpoint enabled="true" type="java-line">
++          <url>file://$PROJECT_DIR$/src/Main.java</url>
++          <line>12</line>
++          <option name="timeStamp" value="9" />
++        </line-breakpoint>
++        <line-breakpoint enabled="true" type="java-line">
++          <url>file://$PROJECT_DIR$/src/Main.java</url>
++          <line>57</line>
++          <option name="timeStamp" value="11" />
++        </line-breakpoint>
++        <line-breakpoint enabled="true" type="java-line">
++          <url>file://$PROJECT_DIR$/src/Manhattan.java</url>
++          <line>13</line>
++          <option name="timeStamp" value="13" />
++        </line-breakpoint>
++        <line-breakpoint enabled="true" type="java-line">
++          <url>file://$PROJECT_DIR$/src/Main.java</url>
++          <line>81</line>
++          <option name="timeStamp" value="14" />
++        </line-breakpoint>
++      </breakpoints>
++    </breakpoint-manager>
++  </component>
++  <component name="XSLT-Support.FileAssociations.UIState">
++    <expand />
++    <select />
+   </component>
+ </project>
+\ No newline at end of file
+Index: .idea/claudeCodeEditorTabs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ClaudeCodeEditorTabs\">\n    <option name=\"activeSessionId\" value=\"4ba4c6a4-17ef-4845-9aca-ac313ba52479\" />\n    <option name=\"openSessionIds\">\n      <list>\n        <option value=\"4ba4c6a4-17ef-4845-9aca-ac313ba52479\" />\n      </list>\n    </option>\n    <option name=\"sessionPaths\">\n      <map>\n        <entry key=\"4ba4c6a4-17ef-4845-9aca-ac313ba52479\" value=\"/sessions/6f9938ec-00d5-4cd5-bb10-83ecfe68bcb1\" />\n      </map>\n    </option>\n    <option name=\"sessionTitles\">\n      <map>\n        <entry key=\"4ba4c6a4-17ef-4845-9aca-ac313ba52479\" value=\"Línea de impresión &quot;Quiubo mundo&quot;\" />\n      </map>\n    </option>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/claudeCodeEditorTabs.xml b/.idea/claudeCodeEditorTabs.xml
+--- a/.idea/claudeCodeEditorTabs.xml	(revision 30a9f14169c422bbeaf88b39decc65d4ff2aa18f)
++++ b/.idea/claudeCodeEditorTabs.xml	(date 1794855588483)
+@@ -9,12 +9,12 @@
+     </option>
+     <option name="sessionPaths">
+       <map>
+-        <entry key="4ba4c6a4-17ef-4845-9aca-ac313ba52479" value="/sessions/6f9938ec-00d5-4cd5-bb10-83ecfe68bcb1" />
++        <entry key="4ba4c6a4-17ef-4845-9aca-ac313ba52479" value="/sessions/cf097f98-21e6-4c0a-b54b-24d818b114e2" />
+       </map>
+     </option>
+     <option name="sessionTitles">
+       <map>
+-        <entry key="4ba4c6a4-17ef-4845-9aca-ac313ba52479" value="Línea de impresión &quot;Quiubo mundo&quot;" />
++        <entry key="4ba4c6a4-17ef-4845-9aca-ac313ba52479" value="chat1" />
+       </map>
+     </option>
+   </component>
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ProjectModuleManager\">\n    <modules>\n      <module fileurl=\"file://$PROJECT_DIR$/ProyectoProgramacionCorte3.iml\" filepath=\"$PROJECT_DIR$/ProyectoProgramacionCorte3.iml\" />\n    </modules>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+--- a/.idea/modules.xml	(revision 30a9f14169c422bbeaf88b39decc65d4ff2aa18f)
++++ b/.idea/modules.xml	(date 1794855588485)
+@@ -2,6 +2,7 @@
+ <project version="4">
+   <component name="ProjectModuleManager">
+     <modules>
++      <module fileurl="file://$PROJECT_DIR$/ParcialCorte3Programacion.iml" filepath="$PROJECT_DIR$/ParcialCorte3Programacion.iml" />
+       <module fileurl="file://$PROJECT_DIR$/ProyectoProgramacionCorte3.iml" filepath="$PROJECT_DIR$/ProyectoProgramacionCorte3.iml" />
+     </modules>
+   </component>
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_21\" default=\"true\" project-jdk-name=\"21\" project-jdk-type=\"JavaSDK\">\n    <output url=\"file://$PROJECT_DIR$/out\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 30a9f14169c422bbeaf88b39decc65d4ff2aa18f)
++++ b/.idea/misc.xml	(date 1794855588491)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="21" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" project-jdk-name="21" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+ </project>
+\ No newline at end of file

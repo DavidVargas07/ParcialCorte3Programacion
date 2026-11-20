@@ -1,0 +1,301 @@
+Index: src/Recursion.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>public class Recursion {\n    static int limiteDeMovimientos = 100000; // Numero maximo de llamadas permitidas a explorar\n    public static boolean busquedaRecursiva(char[][] matriz, int n, int posicionX, int posicionY, int pasos){\n        pasos++;\n        if (pasos > limiteDeMovimientos){\n            return true;\n        }\n        if (matriz[posicionX][posicionY + 1] == 'X') {\n            matriz[posicionX][posicionY] = '*';\n            matriz[posicionX][posicionY+1] = 'S';\n            ImprimirMatriz.imprimir(matriz, n);\n            return true;\n        } else if (matriz[posicionX + 1][posicionY] == 'X') {\n            matriz[posicionX][posicionY] = '*';\n            matriz[posicionX+1][posicionY] = 'S';\n            ImprimirMatriz.imprimir(matriz, n);\n            return true;\n        } else if (matriz[posicionX][posicionY - 1] == 'X') {\n            matriz[posicionX][posicionY-1] = 'S';\n            matriz[posicionX][posicionY] = '*';\n            ImprimirMatriz.imprimir(matriz, n);\n            return true;\n        } else if (matriz[posicionX - 1][posicionY] == 'X') {\n            matriz[posicionX][posicionY] = '*';\n            matriz[posicionX - 1][posicionY] = 'S';\n            ImprimirMatriz.imprimir(matriz, n);\n            return true;\n        } else {\n            if (matriz[posicionX][posicionY + 1] == ' ') {\n                matriz[posicionX][posicionY] = '*';\n                matriz[posicionX][posicionY + 1] = 'S';\n                ImprimirMatriz.imprimir(matriz, n);\n                return busquedaRecursiva(matriz, n, posicionX, posicionY + 1, pasos);\n            } else if (matriz[posicionX + 1][posicionY] == ' ') {\n                matriz[posicionX][posicionY] = '*';\n                matriz[posicionX + 1][posicionY] = 'S';\n                ImprimirMatriz.imprimir(matriz, n);\n                return busquedaRecursiva(matriz, n, posicionX + 1, posicionY, pasos);\n            } else if (matriz[posicionX][posicionY - 1] == ' ') {\n                matriz[posicionX][posicionY] = '*';\n                matriz[posicionX][posicionY - 1] = 'S';\n                ImprimirMatriz.imprimir(matriz, n);\n                return busquedaRecursiva(matriz, n, posicionX, posicionY - 1, pasos);\n            } else if (matriz[posicionX - 1][posicionY] == ' ') {\n                matriz[posicionX][posicionY] = '*';\n                matriz[posicionX - 1][posicionY] = 'S';\n                ImprimirMatriz.imprimir(matriz, n);\n                return busquedaRecursiva(matriz, n, posicionX - 1, posicionY, pasos);\n            }\n        }\n        return false;\n    }\n    public static boolean retroceso(char[][] matriz, int n, int posicionX, int posicionY, int pasos){\n        if (matriz[posicionX][posicionY + 1] == ' ') {\n            ImprimirMatriz.imprimir(matriz, n);\n            return true;\n        } else if (matriz[posicionX + 1][posicionY] == ' ') {\n            ImprimirMatriz.imprimir(matriz, n);\n            return true;\n        } else if (matriz[posicionX][posicionY - 1] == ' ') {\n            ImprimirMatriz.imprimir(matriz, n);\n            return true;\n        } else if (matriz[posicionX - 1][posicionY] == ' ') {\n            ImprimirMatriz.imprimir(matriz, n);\n            return true;\n        }else {\n            if (matriz[posicionX][posicionY + 1] == '*') {\n                matriz[posicionX][posicionY] = 'R';\n                matriz[posicionX][posicionY + 1] = 'S';\n                ImprimirMatriz.imprimir(matriz, n);\n                return retroceso(matriz, n, posicionX, posicionY + 1, pasos);\n            } else if (matriz[posicionX + 1][posicionY] == '*') {\n                matriz[posicionX][posicionY] = 'R';\n                matriz[posicionX + 1][posicionY] = 'S';\n                ImprimirMatriz.imprimir(matriz, n);\n                return retroceso(matriz, n, posicionX + 1, posicionY, pasos);\n            } else if (matriz[posicionX][posicionY - 1] == '*') {\n                matriz[posicionX][posicionY] = 'R';\n                matriz[posicionX][posicionY - 1] = 'S';\n                ImprimirMatriz.imprimir(matriz, n);\n                return retroceso(matriz, n, posicionX, posicionY - 1, pasos);\n            } else if (matriz[posicionX - 1][posicionY] == '*') {\n                matriz[posicionX][posicionY] = 'R';\n                matriz[posicionX - 1][posicionY] = 'S';\n                ImprimirMatriz.imprimir(matriz, n);\n                return retroceso(matriz, n, posicionX - 1, posicionY, pasos);\n            }\n        }\n        return true;\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Recursion.java b/src/Recursion.java
+--- a/src/Recursion.java	(revision d0dd29b82876f9d8e6c39ace3588d97aa1b76815)
++++ b/src/Recursion.java	(date 1795200099109)
+@@ -88,4 +88,4 @@
+         }
+         return true;
+     }
+-}
++}
+\ No newline at end of file
+Index: src/Manhattan.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>public class Manhattan {\n    public static final int LIMITE = 100000; // maximo de llamadas permitidas (por si no hay solucion o el laberinto es muy grande)\n\n    // mostrar: true para imprimir el laberinto en cada movimiento\n    public static void resolver(char[][] matrizTablero, int n, int[] pos, boolean[] estado, int[] cont, boolean mostrar) {\n        estado[0] = false; // mide si la serpiente llego a la X (true) o no (false)\n        estado[1] = false; // mide si el programa llego a 100.000 llamadas (true) o aun no (false)\n        for (int k = 0; k < cont.length; k++) {\n            cont[k] = 0; // llena cada valor de la lista en 0. asi, se reinica por cada una de las 5 repeticiones\n        }\n        boolean[][] visitado = new boolean[n][n]; // matrizTablero paralela para saber si la serpiente ya paso o no por ahi.\n        cont[4]++; // veces que se llama a buscar\n        cont[1]++; // celdas distintas que pisa la serpiente (la O es la primera)\n        if (mostrar) { // sabe si se debe mostrar el laberinto o no\n            mostrarPaso(matrizTablero, n, cont, \"Inicio: la serpiente esta en la O (fila \" + pos[1] + \", col \" + pos[0] + \")\");\n        }\n        buscar(matrizTablero, n, pos[1], pos[0], pos, visitado, estado, cont, mostrar); // empieza en la O: pos[1] = InicioY (la fila de la O), pos[0] = InicioX (la columna de la O)\n        if (!estado[0]) { // la no serpiente llego\n            cont[0] = 0; // cont[0] = LongitudRuta: mientras busca es el largo del camino actual; al final, los movimientos de la O a la X (0 si no llego)\n        }\n    }\n\n    // la serpiente esta en (fila, col) y decide hacia donde moverse\n    // (la llamada y la celda ya se contaron antes de llegar aqui, al momento de moverse)\n    public static void buscar(char[][] matriz, int n, int fila, int col, int[] pos, boolean[][] visitado, boolean[] estado, int[] cont, boolean mostrar) { // mahattan\n        if (fila == pos[3] && col == pos[2]) { // evalua si ya llego\n            estado[0] = true; // llego a la X\n        } else {\n            visitado[fila][col] = true; // marca la casilla como pisada; no vuelve a entrar\n\n            int[] distancia = new int[4]; // nueva lista de 4 valores que guarda las distancia Manhattan de cada vecina hasta la X\n            int[] orden = {0, 1, 2, 3}; // la lista de direcciones que se va a ordenar: 0 arriba, 1 abajo, 2 izquierda, 3 derecha\n            String[] nombres = {\"arriba\", \"abajo\", \"izquierda\", \"derecha\"}; // nombre de cada direccion, para imprimir\n\n            // guarda las distancias Manhattan de cada posicion a X en la lista distancia\n            distancia[0] = Math.abs(pos[2] - col) + Math.abs(pos[3] - (fila - 1)); // vecina de arriba; una fila menos\n            distancia[1] = Math.abs(pos[2] - col) + Math.abs(pos[3] - (fila + 1)); // vecina de abajo; una fila mas\n            distancia[2] = Math.abs(pos[2] - (col - 1)) + Math.abs(pos[3] - fila); // vecina de la izquierda; una columna menos\n            distancia[3] = Math.abs(pos[2] - (col + 1)) + Math.abs(pos[3] - fila); // vecina de la derecha; una columna mas\n\n            // la direccion con menor distancia queda de primera en la lista orden\n            for (int i = 0; i < 3; i++) { // pasadas\n                for (int l = 0; l < 3 - i; l++) { // veces en que se compara; cada vez, solo se debe comparar 1 vez menos\n                    if (distancia[orden[l]] > distancia[orden[l + 1]]) { // saber si la distancia que corresponde a la lista 'orden' es mayor o menor a la siguiente\n                        int aux = orden[l]; // aux guarda temporalmente la mas grande\n                        orden[l] = orden[l + 1]; // cambia el orden en la lista 'orden' a la mayor\n                        orden[l + 1] = aux; // cambia el orden de la lista a la menor. imtercambian\n                    }\n                }\n            }\n\n            // probar las direcciones en orden, hasta encontrar la X o llegar al limite\n            for (int k = 0; k < 4 && !estado[0] && !estado[1]; k++) { // k va a representar la posicion dentro de 'orden'\n                // se asegura de que la serpiente no haya llegado a X y no haya llegado a las 100.000 llamadas\n\n                cont[2]++; // va a revisar una direccion mas\n                int nf = fila; // nf es la fila de la vecina\n                int nc = col; // nc es la columna de la vecina\n\n                // va a evaluar cual de las 4 opciones quedo de primera\n                if (orden[k] == 0) {\n                    nf = fila - 1; // arriba\n                } else if (orden[k] == 1) {\n                    nf = fila + 1; // abajo\n                } else if (orden[k] == 2) {\n                    nc = col - 1; // izquierda\n                } else {\n                    nc = col + 1; // derecha\n                }\n                if (nf >= 0 && nf < n && nc >= 0 && nc < n && matriz[nf][nc] != '+' && !visitado[nf][nc]) {\n                    // evalua si la casilla vecina esté dentro del laberinto, no sea un muro (+) y no haya sido visitada\n\n                    if (cont[4] >= LIMITE) { // limite de llamadas\n                        estado[1] = true;\n                    } else {\n                        // avanzar: la casilla que deja queda como rastro (*) y la cabeza (S) pasa a la vecina\n                        if (matriz[fila][col] == 'S') { // ahora la cabeza cambio\n                            matriz[fila][col] = '*'; // ahora es parte del cuerpo\n                        }\n                        if (matriz[nf][nc] == ' ') { // ahora cambia el espacio para que sea cabeza\n                            matriz[nf][nc] = 'S'; // ahora ese espacio es la cabeza\n                        }\n                        cont[4]++; // hace una llamada mas\n                        cont[1]++; // una celda distinta mas (nunca entra dos veces a la misma)\n                        cont[0]++; // la ruta actual crece un paso\n                        cont[5]++; // se hizo un movimiento\n                        if (mostrar) { // se puede imprimir el laberinto?\n                            String llegada = \"\"; // aviso si la vecina es la X\n                            if (nf == pos[3] && nc == pos[2]) { // llego a la X; compara valores\n                                llegada = \" -> llego a la X!\";\n                            }\n                            // imprime el movimiento, los contadores hasta el momento y el laberinto\n                            mostrarPaso(matriz, n, cont, \"Se mueve hacia \" + nombres[orden[k]] + \" a (fila \" + nf + \", col \" + nc + \")\" + llegada);\n                        }\n\n                        buscar(matriz, n, nf, nc, pos, visitado, estado, cont, mostrar); // RECURSION\n                        // se llama a si misma, hasta que estado[0] sea true, retrocede, o llega al limite de llamadas\n\n                        if (!estado[0] && !estado[1]) { // vuelve a la casilla anterior\n                            cont[3]++; // suma retroceso; veces que vuelve a una casilla ya pisada\n                            cont[0]--; // la ruta actual pierde ese paso\n                            cont[5]++; // retroceder tambien es un movimiento\n                            if (matriz[nf][nc] == 'S') {\n                                matriz[nf][nc] = 'R'; // la casilla del callejon queda marcada como retrocedida (R)\n                            }\n                            if (matriz[fila][col] == '*') {\n                                matriz[fila][col] = 'S'; // la cabeza vuelve a esta casilla\n                            }\n                            if (mostrar) {\n                                mostrarPaso(matriz, n, cont, \"Callejon sin salida: retrocede a (fila \" + fila + \", col \" + col + \")\");\n                            }\n                        }\n                    }\n                }\n            }\n        }\n    }\n\n    // imprime el movimiento, los contadores hasta el momento y el laberinto\n    public static void mostrarPaso(char[][] matriz, int n, int[] cont, String accion) {\n        System.out.println();\n        System.out.println(\"Movimiento \" + cont[5] + \": \" + accion);\n        System.out.println(\"Ruta actual: \" + cont[0] + \" | Celdas examinadas: \" + cont[1] + \" | Intentos: \" + cont[2] + \" | Retrocesos: \" + cont[3] + \" | Llamadas: \" + cont[4]);\n        ImprimirMatriz.imprimir(matriz, n);\n        System.out.println();\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Manhattan.java b/src/Manhattan.java
+--- a/src/Manhattan.java	(revision d0dd29b82876f9d8e6c39ace3588d97aa1b76815)
++++ b/src/Manhattan.java	(date 1795200515810)
+@@ -20,7 +20,6 @@
+         }
+     }
+ 
+-    // la serpiente esta en (fila, col) y decide hacia donde moverse
+     // (la llamada y la celda ya se contaron antes de llegar aqui, al momento de moverse)
+     public static void buscar(char[][] matriz, int n, int fila, int col, int[] pos, boolean[][] visitado, boolean[] estado, int[] cont, boolean mostrar) { // mahattan
+         if (fila == pos[3] && col == pos[2]) { // evalua si ya llego
+Index: src/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n\n        //Creación del laberinto\n        Scanner kb = new Scanner(System.in);\n        System.out.println();\n        System.out.print(\"Numero  ancho y alto: \");\n        int anchoAlto = kb.nextInt();\n        kb.nextLine(); // consume el salto de linea que deja nextInt()\n\n        // Inicializacion de variables\n        String cadena = \"XXX\";\n        int[] pos = new int[4];\n        boolean[] estado = new boolean[2]; // [0] para saber si llego (true) y [1] para saber si llego al maximo de llamadas\n        int[] cont = new int[6]; // 6 contadores que guardan:\n        // [0] la longitud de la ruta,\n        // [1] las celdas distintas,\n        // [2] direcciones revisadas,\n        // [3] retrocesos\n        // [4] llamadas o veces en que entro a una casilla,\n        // [5] movimientos totales\n\n        long[] tiempos = new long[5]; // tiempo de las 5 repeticiones, en nanosegundos\n        char[][] matrizTablero; // tablero;\n\n        int[] tam = {anchoAlto}; // lista para que la funcion pueda devolver el anchoAlto corregido\n        cadena = ProcesoValidacionLaberinto.ProcesoValidacionLaberinto(tam, cadena, kb);\n        // devuelve la cadena valida, o null si el usuario quiere salir\n        anchoAlto = tam[0]; // se actualiza con el anchoAlto que si cumple (>= 3)\n\n        if (cadena != null) {\n            // si sirve el numero y la cadena de texto\n            matrizTablero = new char[anchoAlto][anchoAlto];\n            evaluarCaracteresTexto.evaluar_caracteres_texto(anchoAlto, cadena, matrizTablero, pos); // llena la matriz y guarda las posiciones de la O y la X en pos\n\n            System.out.println();\n\n            System.out.println(\"Laberinto inicial:\");\n            ImprimirMatriz.imprimir(matrizTablero, anchoAlto);\n            // ejecuta la funcion para imprimir la matriz\n\n            System.out.println();\n            System.out.println();\n\n            // estrategia Manhattan (prioridad heuristica)\n            System.out.println(\"ESTRATEGIA MANHATAN\"); // titulo general de la estartegia\n            System.out.println(); // espacio por organizacion\n\n            // imprimesion del laberinto en cada movimiento (no se toma en cuenta el tiempo)\n            System.out.println(\"Recorrido de la serpiente:\");\n            MatrizInicial.matriz_inicial(cadena, matrizTablero, anchoAlto); // la funcion imprime la matriz completa\n            Manhattan.resolver(matrizTablero, anchoAlto, pos, estado, cont, true);\n\n            for (int r = 0; r < 5; r++) { // 5 repeticiones sin imprimir, para sacar la mediana del tiempo\n                MatrizInicial.matriz_inicial(cadena, matrizTablero, anchoAlto); // empezar sin el camino de la repeticion anterior\n                long inicio = System.nanoTime(); // tiempo antes de resolver ; no funciona time.time() por ser java\n                Manhattan.resolver(matrizTablero, anchoAlto, pos, estado, cont, false);\n                long fin = System.nanoTime(); // tiempo despues de resolver (como final=time.time())\n                tiempos[r] = fin - inicio; // lo que se demoro esta repeticion\n            }\n\n            // ordenamiento burbuja de los tiempos para sacar la mediana\n            for (int i = 0; i < 4; i++) {\n                for (int l = 0; l < 4 - i; l++) {\n                    if (tiempos[l] > tiempos[l + 1]) {\n                        long aux = tiempos[l];\n                        tiempos[l] = tiempos[l + 1];\n                        tiempos[l + 1] = aux;\n                    }\n                }\n            }\n\n            if (estado[0]) {\n                System.out.println(\"Camino encontrado:\");\n                ImprimirMatriz.imprimir(matrizTablero, anchoAlto);\n                System.out.println();\n            } else if (estado[1]) {\n                System.out.println(\"Se alcanzo el limite de \" + Manhattan.LIMITE + \" llamadas sin encontrar la X.\");\n            } else {\n                System.out.println(\"No hay camino de la O a la X.\");\n            }\n            System.out.println(\"Longitud de la ruta: \" + cont[0]);\n            System.out.println(\"Celdas distintas examinadas: \" + cont[1]);\n            System.out.println(\"Intentos: \" + cont[2]);\n            System.out.println(\"Retrocesos: \" + cont[3]);\n            System.out.println(\"Llamadas: \" + cont[4]);\n            System.out.println(\"Movimientos totales (avances + retrocesos): \" + cont[5]);\n            System.out.print(\"Tiempos (ordenados, en ms):\");\n            for (int r = 0; r < 5; r++) {\n                System.out.print(\" \" + (tiempos[r] / 1000000.0)); // pasar de nanosegundos a milisegundos\n            }\n            System.out.println();\n            System.out.println(\"Mediana del tiempo: \" + (tiempos[2] / 1000000.0) + \" ms\");\n\n            MatrizInicial.matriz_inicial(cadena, matrizTablero, anchoAlto); // dejar la matriz original para las otras estrategias\n        }\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Main.java b/src/Main.java
+--- a/src/Main.java	(revision d0dd29b82876f9d8e6c39ace3588d97aa1b76815)
++++ b/src/Main.java	(date 1795204965918)
+@@ -11,8 +11,8 @@
+         kb.nextLine(); // consume el salto de linea que deja nextInt()
+ 
+         // Inicializacion de variables
+-        String cadena = "XXX";
+-        int[] pos = new int[4];
++        String cadena = "www";
++        int[] pos = new int[4]; // O en x, O en y, X en x, X en Y
+         boolean[] estado = new boolean[2]; // [0] para saber si llego (true) y [1] para saber si llego al maximo de llamadas
+         int[] cont = new int[6]; // 6 contadores que guardan:
+         // [0] la longitud de la ruta,
+@@ -45,8 +45,8 @@
+             System.out.println();
+ 
+             // estrategia Manhattan (prioridad heuristica)
+-            System.out.println("ESTRATEGIA MANHATAN"); // titulo general de la estartegia
+-            System.out.println(); // espacio por organizacion
++            System.out.println("ESTRATEGIA MANHATAN");
++            System.out.println();
+ 
+             // imprimesion del laberinto en cada movimiento (no se toma en cuenta el tiempo)
+             System.out.println("Recorrido de la serpiente:");
+Index: src/ProcesoValidacionLaberinto.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/ProcesoValidacionLaberinto.java b/src/ProcesoValidacionLaberinto.java
+new file mode 100644
+--- /dev/null	(date 1795200515791)
++++ b/src/ProcesoValidacionLaberinto.java	(date 1795200515791)
+@@ -0,0 +1,64 @@
++import java.util.Scanner;
++
++public class ProcesoValidacionLaberinto {
++    // devuelve la cadena valida, o null si el usuario quiere salir
++    // tam[0] trae el anchoAlto que escribio el usuario y, al final, queda con el anchoAlto ya validado
++    // (se usa una lista porque un int normal no se actualiza en el main)
++    public static String ProcesoValidacionLaberinto(int[] tam, String cadena, Scanner kb) {
++        int anchoAlto = tam[0];
++        // proceso de validacion del laberinto
++        while (anchoAlto < 3 && anchoAlto != 0) {
++            System.out.println();
++            System.out.println("El ancho y alto debe ser mayor o igual a 3"); // evaluo que anchoAlto cumpla con anchoAlto>=3
++            System.out.println("Para acabar el programa, escriba 0"); // se le da la opcion al usuario de acabrlo o no
++            System.out.print("Numero de anchura y altura: ");
++            anchoAlto = kb.nextInt(); // se pregunta anchoAlto, siendo la anchura y altura del laberinto
++            kb.nextLine(); // consume el salto de linea que deja nextInt()
++            System.out.println();
++        }
++        if (anchoAlto == 0) {
++            System.out.println("El programa ha finalizado.");
++            System.out.println("Buen dia :)");
++            return null;
++        } else {
++            char[][] matrizTablero = new char[anchoAlto][anchoAlto]; // cree una matrizTablero de nxn
++            System.out.print("Cadena: ");
++            cadena = kb.nextLine();
++            int[] pos = new int[4]; // guarda las posiciones de el inicio y final; inicio en X, inicio en Y, fin en X, fin en Y
++
++            // proceso de validacion de la longitud de la cadena de texto
++            while ((cadena.length() != anchoAlto * anchoAlto) && !cadena.isEmpty()) { // no sale hasta que el usuario haya escrito la cadena bien, o una cadena de un caracter
++                System.out.println();
++                System.out.println("La cadena no cumple con la longitud. :("); // evaluo si la cadena cumple la longitud
++                System.out.println("Para acabar el programa, toque ENTER.");
++                System.out.print("Cadena: ");
++                cadena = kb.nextLine();
++            }
++            if (cadena.isEmpty()) { // el usuario quiere salir del programa
++                System.out.println();
++                System.out.println("El programa ha finalizado.");
++                System.out.println("Buen dia :)");
++                return null;
++            }
++
++            // la cadena ya tiene la longitud correcta; se revisan los caracteres
++            while (!evaluarCaracteresTexto.evaluar_caracteres_texto(anchoAlto, cadena, matrizTablero, pos)) { // algun caracter de la cadena no es correcto y el usuario no ha salido
++                System.out.println();
++                System.out.println("La cadena debe tener solamente espacios ( ), paredes (+), un inicio (O) y un final (X)");
++                System.out.println("Para acabar el programa, presione ENTER");
++                System.out.print("Cadena: ");
++                cadena = kb.nextLine(); // vuelve a preguntar la cadena
++                System.out.println();
++                if (cadena.isEmpty()) { // el usuario le dio ENTER
++                    System.out.println("El programa ha finalizado.");
++                    System.out.println("Buen dia :)");
++                    return null; // el usuario quiere salir
++                } else if (cadena.length() != anchoAlto * anchoAlto) {
++                    System.out.println("La cadena no cumple con la longitud. :("); // se le da otra oportunidad; no se evalua para no salirse de la cadena
++                }
++            }
++            tam[0] = anchoAlto; // devuelve al main el anchoAlto validado
++            return cadena; // la cadena es valida
++        }
++    }
++}
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"e45bdc9c-11b8-4ad9-983d-79c71b73b0c4\" name=\"Changes\" comment=\"\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_11_26,_7_56 PM_[Changes]/shelved.patch\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_11_26__7_56PM__Changes_.xml\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2026_5_20_PM_[Changes]/shelved.patch\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2026_5_20_PM__Changes_.xml\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_11_2026_2_06_PM_[Changes]/shelved.patch\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_11_2026_2_06_PM__Changes_.xml\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_11_26,_9_31 AM_[Changes]/shelved.patch\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_11_26__9_31AM__Changes_.xml\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_11_26,_7_31 AM_[Changes]/shelved.patch\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_11_26__7_31AM__Changes_.xml\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"GitHubPullRequestSearchHistory\">{\n  &quot;lastFilter&quot;: {\n    &quot;state&quot;: &quot;OPEN&quot;,\n    &quot;assignee&quot;: &quot;Patata55&quot;\n  }\n}</component>\n  <component name=\"GithubPullRequestsUISettings\">{\n  &quot;selectedUrlAndAccountId&quot;: {\n    &quot;url&quot;: &quot;https://github.com/DavidVargas07/ParcialCorte3Programacion&quot;,\n    &quot;accountId&quot;: &quot;33290db7-fee9-43ef-886d-e80e26ec6194&quot;\n  }\n}</component>\n  <component name=\"HighlightingSettingsPerFile\">\n    <setting file=\"file://$PROJECT_DIR$/src/Main.java\" root0=\"SKIP_HIGHLIGHTING\" />\n  </component>\n  <component name=\"ProjectColorInfo\">{\n  &quot;associatedIndex&quot;: 4,\n  &quot;fromUser&quot;: false\n}</component>\n  <component name=\"ProjectId\" id=\"3LvrgkfMOUUU5OMwDJOm7PfZoqp\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;Application.Main.executor&quot;: &quot;Run&quot;,\n    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,\n    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,\n    &quot;git-widget-placeholder&quot;: &quot;main&quot;,\n    &quot;git.auto.fetch.suggestion.counter&quot;: &quot;1&quot;,\n    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/Donut/OneDrive/Documentos/Achivos/Unisabana/Soche/ParcialCorte3Programacion&quot;,\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\n    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Donut/OneDrive/Documentos/Achivos/Unisabana/Soche/ParcialCorte3Programacion/Main.java&quot;,\n    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,\n    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,\n    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,\n    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;\n  }\n}</component>\n  <component name=\"RunManager\">\n    <configuration default=\"true\" type=\"tests\" factoryName=\"Doctests\">\n      <module name=\"ProyectoProgramacionCorte3\" />\n      <option name=\"ENV_FILES\" value=\"\" />\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\n      <option name=\"PARENT_ENVS\" value=\"true\" />\n      <option name=\"SDK_HOME\" value=\"\" />\n      <option name=\"WORKING_DIRECTORY\" value=\"\" />\n      <option name=\"IS_MODULE_SDK\" value=\"false\" />\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\n      <option name=\"DEBUG_JUST_MY_CODE\" value=\"false\" />\n      <option name=\"RUN_TOOL\" value=\"\" />\n      <option name=\"SCRIPT_NAME\" value=\"\" />\n      <option name=\"CLASS_NAME\" value=\"\" />\n      <option name=\"METHOD_NAME\" value=\"\" />\n      <option name=\"FOLDER_NAME\" value=\"\" />\n      <option name=\"TEST_TYPE\" value=\"TEST_SCRIPT\" />\n      <option name=\"PATTERN\" value=\"\" />\n      <option name=\"USE_PATTERN\" value=\"false\" />\n      <method v=\"2\" />\n    </configuration>\n  </component>\n  <component name=\"SharedIndexes\">\n    <attachedChunks>\n      <set>\n        <option value=\"bundled-jdk-30f59d01ecdd-34e2839f716b-intellij.indexing.shared.core-IU-262.9437.185\" />\n        <option value=\"bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-IU-262.9437.185\" />\n      </set>\n    </attachedChunks>\n  </component>\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"e45bdc9c-11b8-4ad9-983d-79c71b73b0c4\" name=\"Changes\" comment=\"\" />\n      <created>1794345496474</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1794345496474</updated>\n    </task>\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"hola2\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"hola2\" />\n  </component>\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\n    <expand />\n    <select />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision d0dd29b82876f9d8e6c39ace3588d97aa1b76815)
++++ b/.idea/workspace.xml	(date 1795206267836)
+@@ -5,17 +5,14 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="e45bdc9c-11b8-4ad9-983d-79c71b73b0c4" name="Changes" comment="">
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_11_26,_7_56 PM_[Changes]/shelved.patch" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_11_26__7_56PM__Changes_.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2026_5_20_PM_[Changes]/shelved.patch" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2026_5_20_PM__Changes_.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_11_2026_2_06_PM_[Changes]/shelved.patch" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_11_2026_2_06_PM__Changes_.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_11_26,_9_31 AM_[Changes]/shelved.patch" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_11_26__9_31AM__Changes_.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_11_26,_7_31 AM_[Changes]/shelved.patch" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_11_26__7_31AM__Changes_.xml" beforeDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/ProcesoValidacionLaberinto.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/claudeCodeEditorTabs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/claudeCodeEditorTabs.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/ParcialCorte3Programacion/Main.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/ProyectoProgramacionCorte3/Main.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Manhattan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Manhattan.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Recursion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Recursion.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -38,12 +35,12 @@
+     &quot;assignee&quot;: &quot;Patata55&quot;
+   }
+ }</component>
+-  <component name="GithubPullRequestsUISettings">{
+-  &quot;selectedUrlAndAccountId&quot;: {
+-    &quot;url&quot;: &quot;https://github.com/DavidVargas07/ParcialCorte3Programacion&quot;,
+-    &quot;accountId&quot;: &quot;33290db7-fee9-43ef-886d-e80e26ec6194&quot;
+-  }
+-}</component>
++  <component name="GithubPullRequestsUISettings"><![CDATA[{
++  "selectedUrlAndAccountId": {
++    "url": "https://github.com/DavidVargas07/ParcialCorte3Programacion",
++    "accountId": "30af76d2-c339-4b75-94ea-c271e32c45fd"
++  }
++}]]></component>
+   <component name="HighlightingSettingsPerFile">
+     <setting file="file://$PROJECT_DIR$/src/Main.java" root0="SKIP_HIGHLIGHTING" />
+   </component>
+@@ -82,6 +79,55 @@
+   }
+ }</component>
+   <component name="RunManager">
++    <configuration default="true" type="JetRunConfigurationType">
++      <module name="ParcialCorte3Programacion" />
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
++      <module name="ParcialCorte3Programacion" />
++      <option name="filePath" />
++      <method v="2" />
++    </configuration>
++    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
++      <module name="ParcialCorte3Programacion" />
++      <option name="ENV_FILES" value="" />
++      <option name="INTERPRETER_OPTIONS" value="" />
++      <option name="PARENT_ENVS" value="true" />
++      <envs>
++        <env name="PYTHONUNBUFFERED" value="1" />
++      </envs>
++      <option name="SDK_HOME" value="" />
++      <option name="WORKING_DIRECTORY" value="" />
++      <option name="IS_MODULE_SDK" value="false" />
++      <option name="ADD_CONTENT_ROOTS" value="true" />
++      <option name="ADD_SOURCE_ROOTS" value="true" />
++      <option name="DEBUG_JUST_MY_CODE" value="false" />
++      <option name="RUN_TOOL" value="" />
++      <option name="SCRIPT_NAME" value="" />
++      <option name="PARAMETERS" value="" />
++      <option name="SHOW_COMMAND_LINE" value="false" />
++      <option name="EMULATE_TERMINAL" value="false" />
++      <option name="MODULE_MODE" value="false" />
++      <option name="REDIRECT_INPUT" value="false" />
++      <option name="INPUT_FILE" value="" />
++      <method v="2" />
++    </configuration>
++    <configuration default="true" type="Tox" factoryName="Tox">
++      <module name="ParcialCorte3Programacion" />
++      <option name="ENV_FILES" value="" />
++      <option name="INTERPRETER_OPTIONS" value="" />
++      <option name="PARENT_ENVS" value="true" />
++      <option name="SDK_HOME" value="" />
++      <option name="WORKING_DIRECTORY" value="" />
++      <option name="IS_MODULE_SDK" value="false" />
++      <option name="ADD_CONTENT_ROOTS" value="true" />
++      <option name="ADD_SOURCE_ROOTS" value="true" />
++      <option name="DEBUG_JUST_MY_CODE" value="false" />
++      <option name="RUN_TOOL" value="" />
++      <method v="2" />
++    </configuration>
+     <configuration default="true" type="tests" factoryName="Doctests">
+       <module name="ProyectoProgramacionCorte3" />
+       <option name="ENV_FILES" value="" />
+@@ -138,7 +184,10 @@
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="hola2" />
+-    <option name="LAST_COMMIT_MESSAGE" value="hola2" />
++    <MESSAGE value="/" />
++    <MESSAGE value="." />
++    <option name="LAST_COMMIT_MESSAGE" value="." />
++    <option name="LAST_CHUNK_COMMIT_MESSAGE" value="." />
+   </component>
+   <component name="XSLT-Support.FileAssociations.UIState">
+     <expand />
+Index: .idea/claudeCodeEditorTabs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ClaudeCodeEditorTabs\">\n    <option name=\"activeSessionId\" value=\"4ba4c6a4-17ef-4845-9aca-ac313ba52479\" />\n    <option name=\"openSessionIds\">\n      <list>\n        <option value=\"4ba4c6a4-17ef-4845-9aca-ac313ba52479\" />\n      </list>\n    </option>\n    <option name=\"sessionPaths\">\n      <map>\n        <entry key=\"4ba4c6a4-17ef-4845-9aca-ac313ba52479\" value=\"/sessions/6f9938ec-00d5-4cd5-bb10-83ecfe68bcb1\" />\n      </map>\n    </option>\n    <option name=\"sessionTitles\">\n      <map>\n        <entry key=\"4ba4c6a4-17ef-4845-9aca-ac313ba52479\" value=\"Línea de impresión &quot;Quiubo mundo&quot;\" />\n      </map>\n    </option>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/claudeCodeEditorTabs.xml b/.idea/claudeCodeEditorTabs.xml
+--- a/.idea/claudeCodeEditorTabs.xml	(revision d0dd29b82876f9d8e6c39ace3588d97aa1b76815)
++++ b/.idea/claudeCodeEditorTabs.xml	(date 1795206267837)
+@@ -1,20 +1,23 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ClaudeCodeEditorTabs">
+-    <option name="activeSessionId" value="4ba4c6a4-17ef-4845-9aca-ac313ba52479" />
++    <option name="activeSessionId" value="72f39143-4a74-478c-901f-c4f9eec8b3e2" />
+     <option name="openSessionIds">
+       <list>
+         <option value="4ba4c6a4-17ef-4845-9aca-ac313ba52479" />
++        <option value="72f39143-4a74-478c-901f-c4f9eec8b3e2" />
+       </list>
+     </option>
+     <option name="sessionPaths">
+       <map>
+-        <entry key="4ba4c6a4-17ef-4845-9aca-ac313ba52479" value="/sessions/6f9938ec-00d5-4cd5-bb10-83ecfe68bcb1" />
++        <entry key="4ba4c6a4-17ef-4845-9aca-ac313ba52479" value="/sessions/cf097f98-21e6-4c0a-b54b-24d818b114e2" />
++        <entry key="72f39143-4a74-478c-901f-c4f9eec8b3e2" value="/sessions/e1656c93-163e-46e6-8320-cc47f42b77b2" />
+       </map>
+     </option>
+     <option name="sessionTitles">
+       <map>
+-        <entry key="4ba4c6a4-17ef-4845-9aca-ac313ba52479" value="Línea de impresión &quot;Quiubo mundo&quot;" />
++        <entry key="4ba4c6a4-17ef-4845-9aca-ac313ba52479" value="chat1" />
++        <entry key="72f39143-4a74-478c-901f-c4f9eec8b3e2" value="Main.java no ejecuta" />
+       </map>
+     </option>
+   </component>
