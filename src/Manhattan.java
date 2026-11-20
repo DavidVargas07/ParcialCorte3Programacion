@@ -8,8 +8,8 @@ public class Manhattan {
         for (int k = 0; k < cont.length; k++) {
             cont[k] = 0; // llena cada valor de la lista en 0. asi, se reinica por cada una de las 5 repeticiones
         }
-        boolean[][] visitado = new boolean[n][n]; // matriz paralela para saber si la serpiente ya paso o no por ahi.
-        cont[4]++; // veces que se llama a buscar (la primera llamada es la de la O)
+        boolean[][] visitado = new boolean[n][n]; // matrizTablero paralela para saber si la serpiente ya paso o no por ahi.
+        cont[4]++; // veces que se llama a buscar
         cont[1]++; // celdas distintas que pisa la serpiente (la O es la primera)
         if (mostrar) { // sabe si se debe mostrar el laberinto o no
             mostrarPaso(matriz, n, cont, "Inicio: la serpiente esta en la O (fila " + pos[1] + ", col " + pos[0] + ")");
