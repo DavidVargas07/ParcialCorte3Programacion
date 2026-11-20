@@ -27,7 +27,9 @@ public class evaluarCaracteresTexto {
             }
         }
         if (o != 1 || x != 1) {
-            sirve[0] = false; // debe haber un solo inicio y un solo final
+            return false; // debe haber un solo inicio y un solo final
+        } else {
+            return true;
         }
     }
 }
