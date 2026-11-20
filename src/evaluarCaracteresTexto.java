@@ -9,7 +9,7 @@ public class evaluarCaracteresTexto {
                 if (cadena.charAt(t) == ' ') {
                     matrizTablero[i][l] = cadena.charAt(t);
                 } else if (cadena.charAt(t) == '+') {
-                    matriz[i][l] = cadena.charAt(t);
+                    matrizTablero[i][l] = cadena.charAt(t);
                 } else if (cadena.charAt(t) == 'O') {
                     matriz[i][l] = cadena.charAt(t);
                     pos[0] = l; // pos[0] = InicioX: la columna de la O
