@@ -44,9 +44,9 @@ public class Main {
             System.out.println();
             System.out.println();
 
-                    // estrategia Manhattan (prioridad heuristica)
-                    System.out.println("ESTRATEGIA MANHATAN"); // titulo general de la estartegia
-                    System.out.println(); // espacio por organizacion
+            // estrategia Manhattan (prioridad heuristica)
+            System.out.println("ESTRATEGIA MANHATAN"); // titulo general de la estartegia
+            System.out.println(); // espacio por organizacion
 
                     boolean[] estado = new boolean[2]; // cree una lista de 2 booleanos, el 0 para saber si llego (true) y el segundo para saber si llego al maximo de llamadas
                     int[] cont = new int[6]; // cree una lista de 6 contadores, en orden guardan
