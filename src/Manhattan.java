@@ -65,7 +65,7 @@ public class Manhattan {
                 } else if (orden[k] == 2) {
                     nc = col - 1; // izquierda
                 } else {
-                    nc = col + 1; // cambia cf para que el siguiente movimiento sea para derecha
+                    nc = col + 1; // derecha
                 }
                 if (nf >= 0 && nf < n && nc >= 0 && nc < n && matriz[nf][nc] != '+' && !visitado[nf][nc]) {
                     // evalua si la casilla vecina esté dentro del laberinto, no sea un muro (+) y no haya sido visitada
