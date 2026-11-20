@@ -9,8 +9,18 @@ public class Main {
         System.out.print("Numero  ancho y alto: ");
         int anchoAlto = kb.nextInt();
         kb.nextLine(); // consume el salto de linea que deja nextInt()
-        String cadena = "XXX"; // inicializar la cadena
-        boolean w = true; // saber si el usuario quiere salir o no en la cadena (linea 50)
+
+        // Inicializacion de variables
+        String cadena = "XXX";
+        int[] pos = new int[4];
+        boolean[] estado = new boolean[2]; // [0] para saber si llego (true) y [1] para saber si llego al maximo de llamadas
+        int[] cont = new int[6]; // 6 contadores que guardan:
+        // [0] la longitud de la ruta,
+        // [1] las celdas distintas,
+        // [2] direcciones revisadas,
+        // [3] retrocesos
+        // [4] llamadas o veces en que entro a una casilla,
+        // [5] movimientos totales
 
         // proceso de validacion de anchoAlto
         while (anchoAlto < 3 && anchoAlto!=0) {
