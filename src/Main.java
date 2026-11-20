@@ -5,8 +5,9 @@ public class Main {
 
         //Creación del laberinto
         Scanner kb = new Scanner(System.in);
-        System.out.print("Numero ancho y alto: ");
-        int anchoAlto = kb.nextInt(); // se pregunta anchoAlto, siendo la anchura y altura del laberinto
+        System.out.println();
+        System.out.print("Numero  ancho y alto: ");
+        int anchoAlto = kb.nextInt();
         kb.nextLine(); // consume el salto de linea que deja nextInt()
         String cadena = "XXX"; // inicializar la cadena
         boolean w = true; // saber si el usuario quiere salir o no en la cadena (linea 50)
