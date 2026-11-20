@@ -48,22 +48,10 @@ public class Main {
             System.out.println("ESTRATEGIA MANHATAN"); // titulo general de la estartegia
             System.out.println(); // espacio por organizacion
 
-                    boolean[] estado = new boolean[2]; // cree una lista de 2 booleanos, el 0 para saber si llego (true) y el segundo para saber si llego al maximo de llamadas
-                    int[] cont = new int[6]; // cree una lista de 6 contadores, en orden guardan
-                    // la longitud de la ruta,
-                    // las celdas distintas,
-                    // direcciones revisadas,
-                    // retrocesos
-                    // llamadas o veces en que entro a una casilla,
-                    // movimientos totales
-
-                    long[] tiempos = new long[5]; // tiempo de cada una de las 5 repeticiones, en nanosegundos
-
-                    // imprimesion del laberinto en cada movimiento (no se toma en cuenta el tiempo)
-                    System.out.println();
-                    System.out.println("Recorrido de la serpiente:");
-                    MatrizInicial.matriz_inicial(cadena, matriz, anchoAlto, pos[0], pos[1], pos[2], pos[3]); // la funcion imprime la matriz completa
-                    Manhattan.resolver(matriz, anchoAlto, pos, estado, cont, true);
+            // imprimesion del laberinto en cada movimiento (no se toma en cuenta el tiempo)
+            System.out.println("Recorrido de la serpiente:");
+            MatrizInicial.matriz_inicial(cadena, matrizTablero, anchoAlto); // la funcion imprime la matriz completa
+            Manhattan.resolver(matrizTablero, anchoAlto, pos, estado, cont, true);
 
                     for (int r = 0; r < 5; r++) { // 5 repeticiones sin imprimir, para sacar la mediana del tiempo
                         MatrizInicial.matriz_inicial(cadena, matriz, anchoAlto, pos[0], pos[1], pos[2], pos[3]); // empezar sin el camino de la repeticion anterior
