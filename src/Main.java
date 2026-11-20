@@ -22,24 +22,8 @@ public class Main {
         // [4] llamadas o veces en que entro a una casilla,
         // [5] movimientos totales
 
-        // proceso de validacion de anchoAlto
-        while (anchoAlto < 3 && anchoAlto!=0) {
-            System.out.println("El ancho y alto debe ser mayor o igual a 3"); // evaluo que anchoAlto cumpla con anchoAlto>=3
-            System.out.println("Para acabar el programa, escriba 0"); // se le da la opcion al usuario de acabrlo o no
-            System.out.print("Numero de anchura y altura: ");
-            anchoAlto = kb.nextInt(); // se pregunta anchoAlto, siendo la anchura y altura del laberinto
-            kb.nextLine();
-            System.out.println();
-        }
-        if (anchoAlto==0) {
-            System.out.println("El programa ha finalizado.");
-            System.out.println("Buen dia :)");
-        } else {
-            char[][] matriz = new char[anchoAlto][anchoAlto]; // cree una matriz de nxn
-            System.out.print("Cadena: ");
-            cadena = kb.nextLine(); // se pregunta la cadena de texto para hacer el laberinto
-            boolean[] sirve = new boolean[1]; // el booleano 'sirve' evalua si sirve o no
-            int[] pos = new int[4]; // guarda las posiciones de el inicio y final (cada posicion se explica donde se usa por primera vez, en NoTocarComprobar)
+        long[] tiempos = new long[5]; // tiempo de las 5 repeticiones, en nanosegundos
+        char[][] matrizTablero; // tablero;
 
             // proceso de validacion de la longitud de la cadena de texto
             while ((cadena.length() != anchoAlto * anchoAlto) && cadena.length()!=1) { // no sale hasta que el usuario haya escrito la cadena bien, o una cadena de un caracter
