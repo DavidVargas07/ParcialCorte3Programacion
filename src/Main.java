@@ -25,33 +25,17 @@ public class Main {
         long[] tiempos = new long[5]; // tiempo de las 5 repeticiones, en nanosegundos
         char[][] matrizTablero; // tablero;
 
-            // proceso de validacion de la longitud de la cadena de texto
-            while ((cadena.length() != anchoAlto * anchoAlto) && cadena.length()!=1) { // no sale hasta que el usuario haya escrito la cadena bien, o una cadena de un caracter
-                System.out.println("La cadena no cumple con la longitud. :("); // evaluo si la cadena cumple la longitud
-                System.out.println("Para acabar el programa, escriba un solo caracter de eleccion.");
-                System.out.print("Cadena: ");
-                cadena = kb.nextLine();
-            }
-            if (cadena.length()==1) { // el usuario quiere salir del programa
-                System.out.println("El programa ha finalizado.");
-                System.out.println("Buen dia :)");
-            }
-            if (cadena.length()==anchoAlto*anchoAlto) { // se cumple con la longitud requerida
-                NoTocarComprobar.No_Tocar_Comprobar(anchoAlto, cadena, matriz, sirve, pos);
-                while (!sirve[0] && w) { // algun caracter de la cadena no es correcto y el usuario no ha salido
-                    System.out.println("La cadena debe tener solamente espacios ( ), paredes (+), un inicio (O) y un final (X)"); // evaluo que anchoAlto cumpla con anchoAlto>=3
-                    System.out.println("Para acabar el programa, presione ENTER"); // se le da la opcion al usuario de acabrlo o no
-                    System.out.print("Cadena: ");
-                    cadena = kb.nextLine(); // vuelve a preguntar la cadena
-                    System.out.println();
-                    if (cadena.isEmpty()) {
-                        w=false; // el usuario quiere salir
-                    } else if (cadena.length() != anchoAlto * anchoAlto) {
-                        System.out.println("La cadena no cumple con la longitud. :(");
-                    } else {
-                        NoTocarComprobar.No_Tocar_Comprobar(anchoAlto, cadena, matriz, sirve, pos);
-                    }
-                }
+        int[] tam = {anchoAlto}; // lista para que la funcion pueda devolver el anchoAlto corregido
+        cadena = ProcesoValidacionLaberinto.ProcesoValidacionLaberinto(tam, cadena, kb);
+        // devuelve la cadena valida, o null si el usuario quiere salir
+        anchoAlto = tam[0]; // se actualiza con el anchoAlto que si cumple (>= 3)
+
+        if (cadena != null) {
+            // si sirve el numero y la cadena de texto
+            matrizTablero = new char[anchoAlto][anchoAlto];
+            evaluarCaracteresTexto.evaluar_caracteres_texto(anchoAlto, cadena, matrizTablero, pos); // llena la matriz y guarda las posiciones de la O y la X en pos
+
+            System.out.println();
 
                 if (sirve[0]) { // lista booleana de un solo caracter para saber si la cadena es valida
                     System.out.println();
