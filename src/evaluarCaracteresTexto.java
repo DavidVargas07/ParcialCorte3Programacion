@@ -1,7 +1,7 @@
 public class evaluarCaracteresTexto {
     // sirve[0]: queda en true si la cadena es valida
-    public static void No_Tocar_Comprobar(int n, String cadena, char[][] matriz, boolean[] sirve, int[] pos) {
-        int t = 0;
+    public static boolean evaluar_caracteres_texto(int anchoAlto, String cadena, char[][] matrizTablero, int[] pos) {
+        int t = 0; // posicion de caracter en cadena
         int o = 0; // o va a verificar que haya una sola O en el texto
         int x = 0; // x va a verificar que haya una sola X en el texto
         sirve[0] = true; // se asume que sirve hasta encontrar un error
