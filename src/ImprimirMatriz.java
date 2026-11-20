@@ -7,7 +7,7 @@ public class ImprimirMatriz {
         }
         System.out.print("\u001B[48;5;208m\u001B[30m" + "-+" + "\u001B[0m"); // imprimir la esquina superior derecha
         System.out.println();
-        for (int columna = 0; columna < magnitud; columna++) {
+        for (int columna = 0; columna < anchoAlto; columna++) {
             System.out.print("\u001B[48;5;208m\u001B[30m" + "| " + "\u001B[0m"); // imprimir los bordes izquierdos
             for (int fila = 0; fila < magnitud; fila++) {
                 if (matrizTablero[columna][fila] == ' ') {
