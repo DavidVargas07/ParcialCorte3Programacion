@@ -59,7 +59,7 @@ public class Manhattan {
 
                 // va a evaluar cual de las 4 opciones quedo de primera
                 if (orden[k] == 0) {
-                    nf = fila - 1; // cambia nf para que el siguiente movimiento sea para arriba
+                    nf = fila - 1; // arriba
                 } else if (orden[k] == 1) {
                     nf = fila + 1; // cambia nf para que el siguiente movimiento sea para abajo
                 } else if (orden[k] == 2) {
