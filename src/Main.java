@@ -37,11 +37,12 @@ public class Main {
 
             System.out.println();
 
-                if (sirve[0]) { // lista booleana de un solo caracter para saber si la cadena es valida
-                    System.out.println();
-                    ImprimirMatriz.imprimir(matriz, anchoAlto); // ejecuta la funcion para imprimir la matriz
-                    System.out.println();
-                    System.out.println();
+            System.out.println("Laberinto inicial:");
+            ImprimirMatriz.imprimir(matrizTablero, anchoAlto);
+            // ejecuta la funcion para imprimir la matriz
+
+            System.out.println();
+            System.out.println();
 
                     // estrategia Manhattan (prioridad heuristica)
                     System.out.println("ESTRATEGIA MANHATAN"); // titulo general de la estartegia
