@@ -72,27 +72,27 @@ public class Main {
                 }
             }
 
-                    if (estado[0]) {
-                        System.out.println("Camino encontrado:");
-                        ImprimirMatriz.imprimir(matriz, anchoAlto);
-                        System.out.println();
-                    } else if (estado[1]) {
-                        System.out.println("Se alcanzo el limite de " + Manhattan.LIMITE + " llamadas sin encontrar la X.");
-                    } else {
-                        System.out.println("No hay camino de la O a la X.");
-                    }
-                    System.out.println("Longitud de la ruta: " + cont[0]);
-                    System.out.println("Celdas distintas examinadas: " + cont[1]);
-                    System.out.println("Intentos: " + cont[2]);
-                    System.out.println("Retrocesos: " + cont[3]);
-                    System.out.println("Llamadas: " + cont[4]);
-                    System.out.println("Movimientos totales (avances + retrocesos): " + cont[5]);
-                    System.out.print("Tiempos (ordenados, en ms):");
-                    for (int r = 0; r < 5; r++) {
-                        System.out.print(" " + (tiempos[r] / 1000000.0)); // pasar de nanosegundos a milisegundos
-                    }
-                    System.out.println();
-                    System.out.println("Mediana del tiempo: " + (tiempos[2] / 1000000.0) + " ms");
+            if (estado[0]) {
+                System.out.println("Camino encontrado:");
+                ImprimirMatriz.imprimir(matrizTablero, anchoAlto);
+                System.out.println();
+            } else if (estado[1]) {
+                System.out.println("Se alcanzo el limite de " + Manhattan.LIMITE + " llamadas sin encontrar la X.");
+            } else {
+                System.out.println("No hay camino de la O a la X.");
+            }
+            System.out.println("Longitud de la ruta: " + cont[0]);
+            System.out.println("Celdas distintas examinadas: " + cont[1]);
+            System.out.println("Intentos: " + cont[2]);
+            System.out.println("Retrocesos: " + cont[3]);
+            System.out.println("Llamadas: " + cont[4]);
+            System.out.println("Movimientos totales (avances + retrocesos): " + cont[5]);
+            System.out.print("Tiempos (ordenados, en ms):");
+            for (int r = 0; r < 5; r++) {
+                System.out.print(" " + (tiempos[r] / 1000000.0)); // pasar de nanosegundos a milisegundos
+            }
+            System.out.println();
+            System.out.println("Mediana del tiempo: " + (tiempos[2] / 1000000.0) + " ms");
 
                     MatrizInicial.matriz_inicial(cadena, matriz, anchoAlto, pos[0], pos[1], pos[2], pos[3]); // dejar la matriz original para las otras estrategias
                 } else {
