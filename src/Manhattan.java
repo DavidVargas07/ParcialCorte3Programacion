@@ -93,7 +93,7 @@ public class Manhattan {
                             mostrarPaso(matriz, n, cont, "Se mueve hacia " + nombres[orden[k]] + " a (fila " + nf + ", col " + nc + ")" + llegada);
                         }
 
-                        buscar(matriz, n, nf, nc, pos, visitado, estado, cont, mostrar); // sigue desde la vecina
+                        buscar(matriz, n, nf, nc, pos, visitado, estado, cont, mostrar); // RECURSION
                         // se llama a si misma, hasta que estado[0] sea true, retrocede, o llega al limite de llamadas
 
                         if (!estado[0] && !estado[1]) { // vuelve a la casilla anterior
