@@ -23,7 +23,7 @@ public class ImprimirMatriz {
                 } else if (matrizTablero[columna][fila] == 'R') {
                     System.out.print("\u001B[41m\u001B[97m" + " R " + "\u001B[0m"); // para imprimir las casillas en las que la serpiente retrocedio
                 } else if (matrizTablero[columna][fila] == 'S') {
-                    System.out.print("\u001B[43m\u001B[30m" + " S " + "\u001B[0m"); // para imprimir la cabeza de la serpiente
+                    System.out.print("\u001B[43m\u001B[30m" + " @ " + "\u001B[0m"); // para imprimir la cabeza de la serpiente
                 }
             }
             System.out.print("\u001B[48;5;208m\u001B[30m" + " |" + "\u001B[0m"); // imprimir los bordes derechos
