@@ -11,7 +11,7 @@ public class evaluarCaracteresTexto {
                 } else if (cadena.charAt(t) == '+') {
                     matrizTablero[i][l] = cadena.charAt(t);
                 } else if (cadena.charAt(t) == 'O') {
-                    matriz[i][l] = cadena.charAt(t);
+                    matrizTablero[i][l] = cadena.charAt(t);
                     pos[0] = l; // pos[0] = InicioX: la columna de la O
                     pos[1] = i; // pos[1] = InicioY: la fila de la O
                     o++;
