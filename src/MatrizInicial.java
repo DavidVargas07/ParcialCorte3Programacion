@@ -12,7 +12,7 @@ public class MatrizInicial {
                 } else if (cadena.charAt(t) == 'O') {
                     matrizTablero[i][l] = cadena.charAt(t);
                 } else if (cadena.charAt(t) == 'X') {
-                    matriz[i][l] = cadena.charAt(t);
+                    matrizTablero[i][l] = cadena.charAt(t);
                 }
                 t++;
             }
