@@ -70,8 +70,8 @@ public class Manhattan {
                 if (nf >= 0 && nf < n && nc >= 0 && nc < n && matriz[nf][nc] != '+' && !visitado[nf][nc]) {
                     // evalua si la casilla vecina esté dentro del laberinto, no sea un muro (+) y no haya sido visitada
 
-                    if (cont[4] >= LIMITE) { // ya no se puede seguir
-                        estado[1] = true; // cambia el valor a false
+                    if (cont[4] >= LIMITE) { // limite de llamadas
+                        estado[1] = true;
                     } else {
                         // avanzar: la casilla que deja queda como rastro (*) y la cabeza (S) pasa a la vecina
                         if (matriz[fila][col] == 'S') { // ahora la cabeza cambio
