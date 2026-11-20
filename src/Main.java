@@ -94,13 +94,7 @@ public class Main {
             System.out.println();
             System.out.println("Mediana del tiempo: " + (tiempos[2] / 1000000.0) + " ms");
 
-                    MatrizInicial.matriz_inicial(cadena, matriz, anchoAlto, pos[0], pos[1], pos[2], pos[3]); // dejar la matriz original para las otras estrategias
-                } else {
-                    System.out.println("El programa ha finalizado.");
-                    System.out.println("Buen dia :)");
-                }
-            }
+            MatrizInicial.matriz_inicial(cadena, matrizTablero, anchoAlto); // dejar la matriz original para las otras estrategias
         }
     }
 }
-
