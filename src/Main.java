@@ -2,6 +2,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+
+        //Creación del laberinto
         Scanner kb = new Scanner(System.in);
         System.out.print("Numero ancho y alto: ");
         int anchoAlto = kb.nextInt(); // se pregunta anchoAlto, siendo la anchura y altura del laberinto
