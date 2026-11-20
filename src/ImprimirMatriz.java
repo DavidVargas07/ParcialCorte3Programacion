@@ -30,7 +30,7 @@ public class ImprimirMatriz {
             System.out.println();
         }
         System.out.print("\u001B[48;5;208m\u001B[30m" + "+-" + "\u001B[0m"); // imprimir la esquina inferior izquierda
-        for (int ultimaFila = 0; ultimaFila < magnitud; ultimaFila++) {
+        for (int ultimaFila = 0; ultimaFila < anchoAlto; ultimaFila++) {
             System.out.print("\u001B[48;5;208m\u001B[30m" + "---" + "\u001B[0m"); // imprimir los '-' del medio
         }
         System.out.print("\u001B[48;5;208m\u001B[30m" + "-+" + "\u001B[0m"); // imprimir la esquina inferior derecha
