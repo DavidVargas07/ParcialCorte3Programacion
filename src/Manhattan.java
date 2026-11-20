@@ -2,7 +2,7 @@ public class Manhattan {
     public static final int LIMITE = 100000; // maximo de llamadas permitidas (por si no hay solucion o el laberinto es muy grande)
 
     // mostrar: true para imprimir el laberinto en cada movimiento
-    public static void resolver(char[][] matriz, int n, int[] pos, boolean[] estado, int[] cont, boolean mostrar) {
+    public static void resolver(char[][] matrizTablero, int n, int[] pos, boolean[] estado, int[] cont, boolean mostrar) {
         estado[0] = false; // mide si la serpiente llego a la X (true) o no (false)
         estado[1] = false; // mide si el programa llego a 100.000 llamadas (true) o aun no (false)
         for (int k = 0; k < cont.length; k++) {
