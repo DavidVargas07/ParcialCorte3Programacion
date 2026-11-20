@@ -11,8 +11,8 @@ public class Main {
         kb.nextLine(); // consume el salto de linea que deja nextInt()
 
         // Inicializacion de variables
-        String cadena = "XXX";
-        int[] pos = new int[4];
+        String cadena = "www";
+        int[] pos = new int[4]; // O en x, O en y, X en x, X en Y
         boolean[] estado = new boolean[2]; // [0] para saber si llego (true) y [1] para saber si llego al maximo de llamadas
         int[] cont = new int[6]; // 6 contadores que guardan:
         // [0] la longitud de la ruta,
@@ -26,7 +26,7 @@ public class Main {
         char[][] matrizTablero; // tablero;
 
         int[] tam = {anchoAlto}; // lista para que la funcion pueda devolver el anchoAlto corregido
-        cadena = ProcesoValidacionLaberinto.ProcesoValidacionLaberinto(tam, cadena, kb);
+        cadena = ProcesoValidacionLaberinto.Proceso_validacion_laberinto(tam, cadena, kb);
         // devuelve la cadena valida, o null si el usuario quiere salir
         anchoAlto = tam[0]; // se actualiza con el anchoAlto que si cumple (>= 3)
 
@@ -45,8 +45,8 @@ public class Main {
             System.out.println();
 
             // estrategia Manhattan (prioridad heuristica)
-            System.out.println("ESTRATEGIA MANHATAN"); // titulo general de la estartegia
-            System.out.println(); // espacio por organizacion
+            System.out.println("ESTRATEGIA MANHATAN");
+            System.out.println();
 
             // imprimesion del laberinto en cada movimiento (no se toma en cuenta el tiempo)
             System.out.println("Recorrido de la serpiente:");

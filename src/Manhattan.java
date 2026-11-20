@@ -20,7 +20,6 @@ public class Manhattan {
         }
     }
 
-    // la serpiente esta en (fila, col) y decide hacia donde moverse
     // (la llamada y la celda ya se contaron antes de llegar aqui, al momento de moverse)
     public static void buscar(char[][] matriz, int n, int fila, int col, int[] pos, boolean[][] visitado, boolean[] estado, int[] cont, boolean mostrar) { // mahattan
         if (fila == pos[3] && col == pos[2]) { // evalua si ya llego
