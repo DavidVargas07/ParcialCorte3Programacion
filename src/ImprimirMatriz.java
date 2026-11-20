@@ -17,7 +17,7 @@ public class ImprimirMatriz {
                 } else if (matrizTablero[columna][fila] == 'O') {
                     System.out.print("\u001B[100m\u001B[31m" + " O " + "\u001B[0m"); // para imprimir el inicio
                 } else if (matrizTablero[columna][fila] == 'X') {
-                    System.out.print("\u001B[48;5;208m\u001B[30m" + " @ " + "\u001B[0m"); // para imprimir el final
+                    System.out.print("\u001B[48;5;208m\u001B[30m" + " X " + "\u001B[0m"); // para imprimir el final
                 } else if (matrizTablero[columna][fila] == '*') {
                     System.out.print("\u001B[44m\u001B[97m" + " * " + "\u001B[0m"); // para imprimir el camino que encontro la serpiente
                 } else if (matrizTablero[columna][fila] == 'R') {
