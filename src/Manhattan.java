@@ -14,8 +14,8 @@ public class Manhattan {
         if (mostrar) { // sabe si se debe mostrar el laberinto o no
             mostrarPaso(matrizTablero, n, cont, "Inicio: la serpiente esta en la O (fila " + pos[1] + ", col " + pos[0] + ")");
         }
-        buscar(matriz, n, pos[1], pos[0], pos, visitado, estado, cont, mostrar); // empieza en la O: pos[1] = InicioY (la fila de la O), pos[0] = InicioX (la columna de la O)
-        if (!estado[0]) { // entra si la serpiente no ha llegado
+        buscar(matrizTablero, n, pos[1], pos[0], pos, visitado, estado, cont, mostrar); // empieza en la O: pos[1] = InicioY (la fila de la O), pos[0] = InicioX (la columna de la O)
+        if (!estado[0]) { // la no serpiente llego
             cont[0] = 0; // cont[0] = LongitudRuta: mientras busca es el largo del camino actual; al final, los movimientos de la O a la X (0 si no llego)
         }
     }
