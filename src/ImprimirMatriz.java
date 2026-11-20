@@ -9,7 +9,7 @@ public class ImprimirMatriz {
         System.out.println();
         for (int columna = 0; columna < anchoAlto; columna++) {
             System.out.print("\u001B[48;5;208m\u001B[30m" + "| " + "\u001B[0m"); // imprimir los bordes izquierdos
-            for (int fila = 0; fila < magnitud; fila++) {
+            for (int fila = 0; fila < anchoAlto; fila++) {
                 if (matrizTablero[columna][fila] == ' ') {
                     System.out.print("\u001B[47m\u001B[30m" + "   " + "\u001B[0m"); // para imprimir los espacios
                 } else if (matrizTablero[columna][fila] == '+') {
