@@ -1,45 +1,95 @@
-import java.util.Scanner:
+import java.util.Scanner;
 public class Main {
-    public static void main(String[] args) {
-        //esto es solo un codigo para ver mas o menos como es la base del codigo, no creo que funcione como está
-        llamadas = llamadas + 1;
 
-        if (llamadas > LIMITE) {
-            limite = true;
-            return false;
-        }
+    static final int LIMITE = 100000; // Numero maximo de llamadas permitidas a explorar
+    static int llamadas = 0; // Cuenta cuantas veces se ha llamado a explorar
+    static boolean limite = false; // Se vuelve true si se supera el LIMITE de llamadas
+    static int pasos = 0; // Cuenta los pasos de la ruta encontrada de O a X
+    static int retrocesos = 0; // Cuenta cuantas veces se devolvio por un camino sin salida
+    static char matriz[][]; // Matriz que guarda el laberinto
+    static boolean visitada[][]; // Memoria global: marca las celdas ya exploradas (nunca se desmarcan)
+    static int df[] = {-1, 1, 0, 0}; // Cambio de fila para moverse: arriba, abajo, izquierda, derecha
+    static int dc[] = {0, 0, -1, 1}; // Cambio de columna para moverse: arriba, abajo, izquierda, derecha
 
-        // Verifica si está fuera, es pared '+' o si ya forma parte de la ruta actual
-        if (f < 0 || f >= matriz.length || c < 0 || c >= matriz[0].length ||
-                matriz[f][c] == '+' || visitada[f][c]) {
-            return false;
-        }
+    public static void main(String[] args) { // Metodo principal donde inicia el programa
+        Scanner entrada = new Scanner(System.in); // Crea el lector de datos del teclado
 
-        if (matriz[f][c] == 'X') {
-            return true;
-        }
+        System.out.print("Ingrese n: "); // Pide al usuario el tamano del laberinto
+        int n = entrada.nextInt(); // Lee el tamano n (el laberinto sera de n x n)
+        entrada.nextLine(); // Descarta el Enter que deja nextInt para que la siguiente lectura reciba el laberinto
+        System.out.print("Ingrese el laberinto (" + (n * n) + " caracteres): "); // Pide el laberinto como una sola cadena
+        String cadena = entrada.nextLine(); // Lee la cadena completa del laberinto
 
-        // Marca la celda como parte de la ruta actual
-        visitada[f][c] = true;
-        int k = 0;
-
-        while (k < 4) {
-            int nf = f + df[k];
-            int nc = c + dc[k];
-
-            if (explorar(nf, nc)) {
-                pasos = pasos + 1;
-                if (matriz[f][c] == ' ') {
-                    matriz[f][c] = 'o';
-                }
-                return true;
+        matriz = new char[n][n]; // Crea la matriz de n x n para el laberinto
+        visitada = new boolean[n][n]; // Crea la matriz de visitadas (todas empiezan en false)
+        int filaO = 0; // Guardara la fila donde esta el origen O
+        int colO = 0; // Guardara la columna donde esta el origen O
+        for (int i = 0; i < n * n; i++) { // Recorre cada caracter de la cadena
+            matriz[i / n][i % n] = cadena.charAt(i); // Pone el caracter en su fila (i / n) y columna (i % n)
+            if (cadena.charAt(i) == 'O') { // Revisa si el caracter es el origen O
+                filaO = i / n; // Guarda la fila del origen
+                colO = i % n; // Guarda la columna del origen
             }
-            k = k + 1;
         }
 
-        //Al no encontrar salida por aquí, libera la celda para otras rutas
-        visitada[f][c] = false;
-        retrocesos = retrocesos + 1;
-        return false;
+        if (explorar(filaO, colO)) { // Empieza a buscar la salida desde el origen O
+            System.out.println("Ruta encontrada en " + pasos + " pasos"); // Muestra que si encontro la salida
+        } else if (limite) { // Si no la encontro porque se acabaron las llamadas
+            System.out.println("Limite alcanzado"); // Avisa que se llego al limite
+        } else { // Si no hay ningun camino posible
+            System.out.println("No hay salida"); // Avisa que no existe salida
+        }
+
+        for (int f = 0; f < n; f++) { // Recorre cada fila de la matriz
+            for (int c = 0; c < n; c++) { // Recorre cada columna de la fila
+                System.out.print("[" + matriz[f][c] + "]"); // Imprime la celda entre corchetes
+            }
+            System.out.println(); // Salta a la siguiente linea al terminar la fila
+        }
+        System.out.println("Llamadas: " + llamadas); // Muestra cuantas llamadas se hicieron
+        System.out.println("Retrocesos: " + retrocesos); // Muestra cuantos retrocesos hubo
+        System.out.println("Maximo teorico con memoria: " + (4 * n * n + 1) + " llamadas"); // Cota O(n^2): 4 vecinos por celda + la llamada inicial
+    }
+
+    static boolean explorar(int f, int c) { // Metodo recursivo: devuelve true si desde (f, c) se llega a X
+        llamadas = llamadas + 1; // Suma una llamada al contador
+
+        if (llamadas > LIMITE) { // Revisa si ya se paso el limite de llamadas
+            limite = true; // Marca que se alcanzo el limite
+            return false; // Detiene la busqueda por este camino
+        }
+
+        // Verifica si esta fuera, es pared '+' o si ya fue visitada antes
+        if (f < 0 || f >= matriz.length || c < 0 || c >= matriz[0].length || // Revisa si la posicion esta fuera del laberinto
+                matriz[f][c] == '+' || visitada[f][c]) { // Revisa si es pared o si ya fue explorada (memoria)
+            return false; // No se puede pasar por esta celda
+        }
+
+        if (matriz[f][c] == 'X') { // Revisa si llegamos a la salida X
+            return true; // Encontro la salida
+        }
+
+        // Marca la celda en la memoria global
+        visitada[f][c] = true; // Marca la celda para no volver a explorarla nunca
+        int k = 0; // Indice del movimiento que se va a probar (0 a 3)
+
+        while (k < 4) { // Prueba los 4 movimientos posibles
+            int nf = f + df[k]; // Calcula la fila del vecino
+            int nc = c + dc[k]; // Calcula la columna del vecino
+
+            if (explorar(nf, nc)) { // Llama a explorar desde el vecino (recursion)
+                pasos = pasos + 1; // Si por ahi se llego a X, suma un paso a la ruta
+                if (matriz[f][c] == ' ') { // Revisa si la celda es un espacio libre (no es la O)
+                    matriz[f][c] = 'o'; // Marca la celda con 'o' para mostrar la ruta
+                }
+                return true; // Avisa a la llamada anterior que si hay camino
+            }
+            k = k + 1; // Pasa al siguiente movimiento
+        }
+
+        // Al no encontrar salida por aqui, la celda queda marcada en visitada (memoria global)
+        // para que ninguna otra ruta la vuelva a explorar
+        retrocesos = retrocesos + 1; // Suma un retroceso porque este camino no tiene salida
+        return false; // Avisa a la llamada anterior que por aqui no hay camino
     }
 }

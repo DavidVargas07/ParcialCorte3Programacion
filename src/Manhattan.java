@@ -2,20 +2,20 @@ public class Manhattan {
     public static final int LIMITE = 100000; // maximo de llamadas permitidas (por si no hay solucion o el laberinto es muy grande)
 
     // mostrar: true para imprimir el laberinto en cada movimiento
-    public static void resolver(char[][] matriz, int n, int[] pos, boolean[] estado, int[] cont, boolean mostrar) {
+    public static void resolver(char[][] matrizTablero, int n, int[] pos, boolean[] estado, int[] cont, boolean mostrar) {
         estado[0] = false; // mide si la serpiente llego a la X (true) o no (false)
         estado[1] = false; // mide si el programa llego a 100.000 llamadas (true) o aun no (false)
         for (int k = 0; k < cont.length; k++) {
             cont[k] = 0; // llena cada valor de la lista en 0. asi, se reinica por cada una de las 5 repeticiones
         }
-        boolean[][] visitado = new boolean[n][n]; // matriz paralela para saber si la serpiente ya paso o no por ahi.
-        cont[4]++; // veces que se llama a buscar (la primera llamada es la de la O)
+        boolean[][] visitado = new boolean[n][n]; // matrizTablero paralela para saber si la serpiente ya paso o no por ahi.
+        cont[4]++; // veces que se llama a buscar
         cont[1]++; // celdas distintas que pisa la serpiente (la O es la primera)
         if (mostrar) { // sabe si se debe mostrar el laberinto o no
-            mostrarPaso(matriz, n, cont, "Inicio: la serpiente esta en la O (fila " + pos[1] + ", col " + pos[0] + ")");
+            mostrarPaso(matrizTablero, n, cont, "Inicio: la serpiente esta en la O (fila " + pos[1] + ", col " + pos[0] + ")");
         }
-        buscar(matriz, n, pos[1], pos[0], pos, visitado, estado, cont, mostrar); // empieza en la O: pos[1] = InicioY (la fila de la O), pos[0] = InicioX (la columna de la O)
-        if (!estado[0]) { // entra si la serpiente no ha llegado
+        buscar(matrizTablero, n, pos[1], pos[0], pos, visitado, estado, cont, mostrar); // empieza en la O: pos[1] = InicioY (la fila de la O), pos[0] = InicioX (la columna de la O)
+        if (!estado[0]) { // la no serpiente llego
             cont[0] = 0; // cont[0] = LongitudRuta: mientras busca es el largo del camino actual; al final, los movimientos de la O a la X (0 si no llego)
         }
     }
@@ -59,19 +59,19 @@ public class Manhattan {
 
                 // va a evaluar cual de las 4 opciones quedo de primera
                 if (orden[k] == 0) {
-                    nf = fila - 1; // cambia nf para que el siguiente movimiento sea para arriba
+                    nf = fila - 1; // arriba
                 } else if (orden[k] == 1) {
-                    nf = fila + 1; // cambia nf para que el siguiente movimiento sea para abajo
+                    nf = fila + 1; // abajo
                 } else if (orden[k] == 2) {
-                    nc = col - 1; // cambia cf para que el siguiente movimiento sea para izquierda
+                    nc = col - 1; // izquierda
                 } else {
-                    nc = col + 1; // cambia cf para que el siguiente movimiento sea para derecha
+                    nc = col + 1; // derecha
                 }
                 if (nf >= 0 && nf < n && nc >= 0 && nc < n && matriz[nf][nc] != '+' && !visitado[nf][nc]) {
                     // evalua si la casilla vecina esté dentro del laberinto, no sea un muro (+) y no haya sido visitada
 
-                    if (cont[4] >= LIMITE) { // ya no se puede seguir
-                        estado[1] = true; // cambia el valor a false
+                    if (cont[4] >= LIMITE) { // limite de llamadas
+                        estado[1] = true;
                     } else {
                         // avanzar: la casilla que deja queda como rastro (*) y la cabeza (S) pasa a la vecina
                         if (matriz[fila][col] == 'S') { // ahora la cabeza cambio
@@ -93,7 +93,7 @@ public class Manhattan {
                             mostrarPaso(matriz, n, cont, "Se mueve hacia " + nombres[orden[k]] + " a (fila " + nf + ", col " + nc + ")" + llegada);
                         }
 
-                        buscar(matriz, n, nf, nc, pos, visitado, estado, cont, mostrar); // sigue desde la vecina
+                        buscar(matriz, n, nf, nc, pos, visitado, estado, cont, mostrar); // RECURSION
                         // se llama a si misma, hasta que estado[0] sea true, retrocede, o llega al limite de llamadas
 
                         if (!estado[0] && !estado[1]) { // vuelve a la casilla anterior
