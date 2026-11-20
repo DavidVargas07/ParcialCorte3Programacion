@@ -1,4 +1,4 @@
-public class NoTocarComprobar {
+public class evaluarCaracteresTexto {
     // sirve[0]: queda en true si la cadena es valida
     public static void No_Tocar_Comprobar(int n, String cadena, char[][] matriz, boolean[] sirve, int[] pos) {
         int t = 0;
