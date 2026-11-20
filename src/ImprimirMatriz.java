@@ -2,7 +2,7 @@ public class ImprimirMatriz {
     // funcion para imprimir la matrizTablero
     public static void imprimir(char[][] matrizTablero, int anchoAlto) {
         System.out.print("\u001B[48;5;208m\u001B[30m" + "+-" + "\u001B[0m"); // imprimir la ezquina superior izquierda
-        for (int primeraFila = 0; primeraFila < magnitud; primeraFila++) {
+        for (int primeraFila = 0; primeraFila < anchoAlto; primeraFila++) {
             System.out.print("\u001B[48;5;208m\u001B[30m" + "---" + "\u001B[0m"); // imprimir los '-' del medio
         }
         System.out.print("\u001B[48;5;208m\u001B[30m" + "-+" + "\u001B[0m"); // imprimir la esquina superior derecha
