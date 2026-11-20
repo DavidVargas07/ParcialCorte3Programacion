@@ -4,9 +4,8 @@ public class evaluarCaracteresTexto {
         int t = 0; // posicion de caracter en cadena
         int o = 0; // o va a verificar que haya una sola O en el texto
         int x = 0; // x va a verificar que haya una sola X en el texto
-        sirve[0] = true; // se asume que sirve hasta encontrar un error
-        for (int i = 0; i < n; i++) { // evaluar que el texto tenga los caracteres y su cantidad correspondiente e introducirlos en la matriz
-            for (int l = 0; l < n; l++) {
+        for (int i = 0; i < anchoAlto; i++) { // evaluar que el texto tenga los caracteres y su cantidad correspondiente e introducirlos en la matrizTablero
+            for (int l = 0; l < anchoAlto; l++) {
                 if (cadena.charAt(t) == ' ') {
                     matriz[i][l] = cadena.charAt(t);
                 } else if (cadena.charAt(t) == '+') {
