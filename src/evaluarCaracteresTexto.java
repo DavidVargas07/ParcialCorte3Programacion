@@ -21,7 +21,7 @@ public class evaluarCaracteresTexto {
                     pos[3] = i; // pos[3] = FinY: la fila de la X
                     x++;
                 } else {
-                    sirve[0] = false; // si tiene otro caracter
+                    return false; // si tiene otro caracter
                 }
                 t++;
             }
