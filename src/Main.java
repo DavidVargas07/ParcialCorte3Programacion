@@ -61,16 +61,16 @@ public class Main {
                 tiempos[r] = fin - inicio; // lo que se demoro esta repeticion
             }
 
-                    // ordenamiento burbuja de los tiempos para sacar la mediana
-                    for (int i = 0; i < 4; i++) {
-                        for (int l = 0; l < 4 - i; l++) {
-                            if (tiempos[l] > tiempos[l + 1]) {
-                                long aux = tiempos[l];
-                                tiempos[l] = tiempos[l + 1];
-                                tiempos[l + 1] = aux;
-                            }
-                        }
+            // ordenamiento burbuja de los tiempos para sacar la mediana
+            for (int i = 0; i < 4; i++) {
+                for (int l = 0; l < 4 - i; l++) {
+                    if (tiempos[l] > tiempos[l + 1]) {
+                        long aux = tiempos[l];
+                        tiempos[l] = tiempos[l + 1];
+                        tiempos[l + 1] = aux;
                     }
+                }
+            }
 
                     if (estado[0]) {
                         System.out.println("Camino encontrado:");
