@@ -16,7 +16,7 @@ public class evaluarCaracteresTexto {
                     pos[1] = i; // pos[1] = InicioY: la fila de la O
                     o++;
                 } else if (cadena.charAt(t) == 'X') {
-                    matriz[i][l] = cadena.charAt(t);
+                    matrizTablero[i][l] = cadena.charAt(t);
                     pos[2] = l; // pos[2] = FinX: la columna de la X
                     pos[3] = i; // pos[3] = FinY: la fila de la X
                     x++;
