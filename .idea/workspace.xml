@@ -5,18 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e45bdc9c-11b8-4ad9-983d-79c71b73b0c4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/ProcesoValidacionLaberinto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/claudeCodeEditorTabs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/claudeCodeEditorTabs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ParcialCorte3Programacion/ImprimirMatriz.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ParcialCorte3Programacion/ImprimirMatriz.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ParcialCorte3Programacion/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ParcialCorte3Programacion/Manhattan.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ParcialCorte3Programacion/Manhattan.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ParcialCorte3Programacion/MatrizInicial.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ParcialCorte3Programacion/MatrizInicial.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ParcialCorte3Programacion/NoTocarComprobar.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ParcialCorte3Programacion/ImprimirMatriz.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ParcialCorte3Programacion/Manhattan.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ParcialCorte3Programacion/MatrizInicial.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ParcialCorte3Programacion/ProcesoValidacionLaberinto.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ParcialCorte3Programacion/ProcesoValidacionLaberinto.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ParcialCorte3Programacion/Recursion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ParcialCorte3Programacion/Recursion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProyectoProgramacionCorte3/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ImprimirMatriz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ImprimirMatriz.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Manhattan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Manhattan.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Recursion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Recursion.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,7 +39,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/DavidVargas07/ParcialCorte3Programacion&quot;,
-    &quot;accountId&quot;: &quot;30af76d2-c339-4b75-94ea-c271e32c45fd&quot;
+    &quot;accountId&quot;: &quot;33290db7-fee9-43ef-886d-e80e26ec6194&quot;
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
@@ -84,55 +80,6 @@
   }
 }</component>
   <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="ParcialCorte3Programacion" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="ParcialCorte3Programacion" />
-      <option name="filePath" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
-      <module name="ParcialCorte3Programacion" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="false" />
-      <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="Tox" factoryName="Tox">
-      <module name="ParcialCorte3Programacion" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="false" />
-      <option name="RUN_TOOL" value="" />
-      <method v="2" />
-    </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
       <module name="ProyectoProgramacionCorte3" />
       <option name="ENV_FILES" value="" />
@@ -189,10 +136,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="hola2" />
-    <MESSAGE value="/" />
-    <MESSAGE value="." />
-    <option name="LAST_COMMIT_MESSAGE" value="." />
-    <option name="LAST_CHUNK_COMMIT_MESSAGE" value="." />
+    <option name="LAST_COMMIT_MESSAGE" value="hola2" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
