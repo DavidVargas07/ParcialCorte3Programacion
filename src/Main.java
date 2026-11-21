@@ -155,7 +155,7 @@ public class Main {
                 for (int r = 0; r < 5; r++) { // 5 repeticiones sin imprimir, para sacar la mediana del tiempo
                     MatrizInicial.matriz_inicial(cadena, matrizTablero, anchoAlto); // empezar sin el camino de la repeticion anterior
                     long inicio = System.nanoTime(); // tiempo antes de resolver ; no funciona time.time() por ser java
-                    FuncionamientoBusquedaExhaustiva.resolver(matriz, n, pos, estado, cont, false);                    long fin = System.nanoTime(); // tiempo despues de resolver (como final=time.time())
+                    FuncionamientoBusquedaExhaustiva.resolver(matrizTablero, anchoAlto, pos, estado, cont, false);                    long fin = System.nanoTime(); // tiempo despues de resolver (como final=time.time())
                     tiempos[r] = fin - inicio; // lo que se demoro esta repeticion
                 }
 
