@@ -182,6 +182,7 @@ public class Main {
                 System.out.println();
                 System.out.println("Mediana del tiempo: " + (tiempos[2] / 1000000.0) + " ms");
 
+                MatrizInicial.matriz_inicial(cadena, matrizTablero, anchoAlto); // dejar la matriz original para las otras estrategias
             }
         }
     }
