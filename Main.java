@@ -91,7 +91,6 @@ public class RecursionConMemoria {
                 }
                 matriz[posicionX][posicionY] = 'S'; // Se devolvio a esta celda
             }
-            k = k + 1; // Pasa al siguiente movimiento
         }
 
         // Ningun vecino llevo a la X: retroceso
