@@ -134,6 +134,32 @@ public class Main {
                 System.out.println("Movimientos totales (avances + retrocesos): " + cont[5]);
                 System.out.print("Tiempos (ordenados, en ms):");
             }else{
+                // estrategia Manhattan (prioridad heuristica)
+                System.out.println("Busqueda Exhaustiva");
+                System.out.println();
+
+                // imprimesion del laberinto en cada movimiento (no se toma en cuenta el tiempo)
+                System.out.println("Recorrido de la serpiente:");
+                MatrizInicial.matriz_inicial(cadena, matrizTablero, anchoAlto); // la funcion imprime la matriz completa
+                FuncionamientoBusquedaExhaustiva.buscar(matriz, n, fila, col, pos, visitado, yaContada, estado, cont, true);
+
+                for (int r = 0; r < 5; r++) { // 5 repeticiones sin imprimir, para sacar la mediana del tiempo
+                    MatrizInicial.matriz_inicial(cadena, matrizTablero, anchoAlto); // empezar sin el camino de la repeticion anterior
+                    long inicio = System.nanoTime(); // tiempo antes de resolver ; no funciona time.time() por ser java
+                    FuncionamientoBusquedaExhaustiva.buscar(matriz, n, fila, col, pos, visitado, yaContada, estado, cont, false);                    long fin = System.nanoTime(); // tiempo despues de resolver (como final=time.time())
+                    tiempos[r] = fin - inicio; // lo que se demoro esta repeticion
+                }
+
+                // ordenamiento burbuja de los tiempos para sacar la mediana
+                for (int i = 0; i < 4; i++) {
+                    for (int l = 0; l < 4 - i; l++) {
+                        if (tiempos[l] > tiempos[l + 1]) {
+                            long aux = tiempos[l];
+                            tiempos[l] = tiempos[l + 1];
+                            tiempos[l + 1] = aux;
+                        }
+                    }
+                }
 
             }
         }
