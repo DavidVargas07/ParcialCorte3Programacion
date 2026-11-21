@@ -143,7 +143,7 @@ public class Main {
                 MatrizInicial.matriz_inicial(cadena, matrizTablero, anchoAlto); // dejar la matriz original para las otras estrategias
 
             }else{
-                // estrategia Manhattan (prioridad heuristica)
+                // fuerza bruta (Busqueda Exhaustiva)
                 System.out.println("Busqueda Exhaustiva");
                 System.out.println();
 
