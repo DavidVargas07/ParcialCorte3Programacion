@@ -80,19 +80,14 @@ public class RecursionConMemoria {
                 matriz[posicionX][posicionY] = 'S'; // Se devolvio a esta celda
             }
         }
-
-        // Marca la celda en la memoria global
-        visitada[f][c] = true; // Marca la celda para no volver a explorarla nunca
-        int k = 0; // Indice del movimiento que se va a probar (0 a 3)
-
-        while (k < 4) { // Prueba los 4 movimientos posibles
-            int nf = f + df[k]; // Calcula la fila del vecino
-            int nc = c + dc[k]; // Calcula la columna del vecino
-
-            if (explorar(nf, nc)) { // Llama a explorar desde el vecino (recursion)
-                pasos = pasos + 1; // Si por ahi se llego a X, suma un paso a la ruta
-                if (matriz[f][c] == ' ') { // Revisa si la celda es un espacio libre (no es la O)
-                    matriz[f][c] = 'o'; // Marca la celda con 'o' para mostrar la ruta
+        if (matriz[posicionX - 1][posicionY] == ' ') {
+            if (visitado[posicionX - 1][posicionY] == false) { // Solo si nunca se ha visitado (memoria)
+                cont[1] += 4;
+                matriz[posicionX][posicionY] = '*';
+                matriz[posicionX - 1][posicionY] = 'S';
+                ImprimirMatriz.imprimir(matriz, n);
+                if (explorar(matriz, n, posicionX - 1, posicionY, cont, visitado)) {
+                    return true;
                 }
                 return true; // Avisa a la llamada anterior que si hay camino
             }
