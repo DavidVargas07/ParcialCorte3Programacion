@@ -43,24 +43,18 @@ public class RecursionConMemoria {
             return true;
         }
 
-        matriz = new char[n][n]; // Crea la matriz de n x n para el laberinto
-        visitada = new boolean[n][n]; // Crea la matriz de visitadas (todas empiezan en false)
-        int filaO = 0; // Guardara la fila donde esta el origen O
-        int colO = 0; // Guardara la columna donde esta el origen O
-        for (int i = 0; i < n * n; i++) { // Recorre cada caracter de la cadena
-            matriz[i / n][i % n] = cadena.charAt(i); // Pone el caracter en su fila (i / n) y columna (i % n)
-            if (cadena.charAt(i) == 'O') { // Revisa si el caracter es el origen O
-                filaO = i / n; // Guarda la fila del origen
-                colO = i % n; // Guarda la columna del origen
+        // Se prueban TODOS los vecinos libres que no se han visitado, no solo el primero
+        if (matriz[posicionX][posicionY + 1] == ' ') {
+            if (visitado[posicionX][posicionY + 1] == false) { // Solo si nunca se ha visitado (memoria)
+                cont[1] += 1;
+                matriz[posicionX][posicionY] = '*';
+                matriz[posicionX][posicionY + 1] = 'S';
+                ImprimirMatriz.imprimir(matriz, n);
+                if (explorar(matriz, n, posicionX, posicionY + 1, cont, visitado)) {
+                    return true;
+                }
+                matriz[posicionX][posicionY] = 'S'; // Se devolvio a esta celda
             }
-        }
-
-        if (explorar(filaO, colO)) { // Empieza a buscar la salida desde el origen O
-            System.out.println("Ruta encontrada en " + pasos + " pasos"); // Muestra que si encontro la salida
-        } else if (limite) { // Si no la encontro porque se acabaron las llamadas
-            System.out.println("Limite alcanzado"); // Avisa que se llego al limite
-        } else { // Si no hay ningun camino posible
-            System.out.println("No hay salida"); // Avisa que no existe salida
         }
 
         for (int f = 0; f < n; f++) { // Recorre cada fila de la matriz
