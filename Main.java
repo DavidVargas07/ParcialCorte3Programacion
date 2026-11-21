@@ -7,8 +7,14 @@ public class RecursionConMemoria {
         return explorar(matriz, n, posicionX, posicionY, cont, visitado);
     }
 
-    public static void main(String[] args) { // Metodo principal donde inicia el programa
-        Scanner entrada = new Scanner(System.in); // Crea el lector de datos del teclado
+    public static boolean explorar(char[][] matriz, int n, int posicionX, int posicionY, int[] cont, boolean[][] visitado){
+        cont[2]++;
+        cont[0]++;
+        cont[4]++;
+        if (cont[2] > limiteDeMovimientos){
+            return true;
+        }
+        visitado[posicionX][posicionY] = true; // Se marca para siempre, nunca se vuelve a explorar
 
         System.out.print("Ingrese n: "); // Pide al usuario el tamano del laberinto
         int n = entrada.nextInt(); // Lee el tamano n (el laberinto sera de n x n)
