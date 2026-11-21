@@ -42,7 +42,7 @@ public class Main {
             // ejecuta la funcion para imprimir la matriz
 
             System.out.println("Que funcion quieres que se utilize para encotrar el camino?");
-            System.out.println("1. Manhatan | 2. Recursion | 3. El otro");
+            System.out.println("1. Prioridad heurística | 2. Recursion con memoria | 3. Busqueda Exhaustiva");
             int metodo = kb.nextInt();
             while (metodo < 1 || metodo >3 ){
                 System.out.println("Ese numero no es correcto, pon uno correcto:");
@@ -150,12 +150,12 @@ public class Main {
                 // imprimesion del laberinto en cada movimiento (no se toma en cuenta el tiempo)
                 System.out.println("Recorrido de la serpiente:");
                 MatrizInicial.matriz_inicial(cadena, matrizTablero, anchoAlto); // la funcion imprime la matriz completa
-                FuncionamientoBusquedaExhaustiva.buscar(matriz, n, fila, col, pos, visitado, yaContada, estado, cont, true);
+                FuncionamientoBusquedaExhaustiva.resolver(matriz, n, pos, estado, cont, true);
 
                 for (int r = 0; r < 5; r++) { // 5 repeticiones sin imprimir, para sacar la mediana del tiempo
                     MatrizInicial.matriz_inicial(cadena, matrizTablero, anchoAlto); // empezar sin el camino de la repeticion anterior
                     long inicio = System.nanoTime(); // tiempo antes de resolver ; no funciona time.time() por ser java
-                    FuncionamientoBusquedaExhaustiva.buscar(matriz, n, fila, col, pos, visitado, yaContada, estado, cont, false);                    long fin = System.nanoTime(); // tiempo despues de resolver (como final=time.time())
+                    FuncionamientoBusquedaExhaustiva.resolver(matriz, n, pos, estado, cont, false);                    long fin = System.nanoTime(); // tiempo despues de resolver (como final=time.time())
                     tiempos[r] = fin - inicio; // lo que se demoro esta repeticion
                 }
 
