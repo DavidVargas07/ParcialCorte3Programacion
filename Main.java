@@ -1,15 +1,11 @@
 public class RecursionConMemoria {
     static int limiteDeMovimientos = 100000; // Numero maximo de llamadas permitidas a explorar
 
-    static final int LIMITE = 100000; // Numero maximo de llamadas permitidas a explorar
-    static int llamadas = 0; // Cuenta cuantas veces se ha llamado a explorar
-    static boolean limite = false; // Se vuelve true si se supera el LIMITE de llamadas
-    static int pasos = 0; // Cuenta los pasos de la ruta encontrada de O a X
-    static int retrocesos = 0; // Cuenta cuantas veces se devolvio por un camino sin salida
-    static char matriz[][]; // Matriz que guarda el laberinto
-    static boolean visitada[][]; // Memoria global: marca las celdas ya exploradas (nunca se desmarcan)
-    static int df[] = {-1, 1, 0, 0}; // Cambio de fila para moverse: arriba, abajo, izquierda, derecha
-    static int dc[] = {0, 0, -1, 1}; // Cambio de columna para moverse: arriba, abajo, izquierda, derecha
+    // Se llama igual que la estrategia A: crea la matriz booleana de memoria y empieza a buscar
+    public static boolean busquedaConMemoria(char[][] matriz, int n, int posicionX, int posicionY, int[] cont){
+        boolean[][] visitado = new boolean[matriz.length][matriz[0].length]; // Memoria: todas empiezan en false
+        return explorar(matriz, n, posicionX, posicionY, cont, visitado);
+    }
 
     public static void main(String[] args) { // Metodo principal donde inicia el programa
         Scanner entrada = new Scanner(System.in); // Crea el lector de datos del teclado
