@@ -94,9 +94,12 @@ public class RecursionConMemoria {
             k = k + 1; // Pasa al siguiente movimiento
         }
 
-        // Al no encontrar salida por aqui, la celda queda marcada en visitada (memoria global)
-        // para que ninguna otra ruta la vuelva a explorar
-        retrocesos = retrocesos + 1; // Suma un retroceso porque este camino no tiene salida
-        return false; // Avisa a la llamada anterior que por aqui no hay camino
+        // Ningun vecino llevo a la X: retroceso
+        cont[2]++;
+        cont[3]++;
+        cont[0]--;
+        matriz[posicionX][posicionY] = 'R';
+        ImprimirMatriz.imprimir(matriz, n);
+        return false;
     }
 }
