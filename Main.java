@@ -1,5 +1,5 @@
-import java.util.Scanner;
-public class Main {
+public class RecursionConMemoria {
+    static int limiteDeMovimientos = 100000; // Numero maximo de llamadas permitidas a explorar
 
     static final int LIMITE = 100000; // Numero maximo de llamadas permitidas a explorar
     static int llamadas = 0; // Cuenta cuantas veces se ha llamado a explorar
