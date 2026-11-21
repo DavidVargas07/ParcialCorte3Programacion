@@ -133,6 +133,15 @@ public class Main {
                 cont[5] = cont[3] + cont[4];
                 System.out.println("Movimientos totales (avances + retrocesos): " + cont[5]);
                 System.out.print("Tiempos (ordenados, en ms):");
+
+                for (int r = 0; r < 5; r++) {
+                    System.out.print(" " + (tiempos[r] / 1000000.0)); // pasar de nanosegundos a milisegundos
+                }
+                System.out.println();
+                System.out.println("Mediana del tiempo: " + (tiempos[2] / 1000000.0) + " ms");
+
+                MatrizInicial.matriz_inicial(cadena, matrizTablero, anchoAlto); // dejar la matriz original para las otras estrategias
+
             }else{
                 // estrategia Manhattan (prioridad heuristica)
                 System.out.println("Busqueda Exhaustiva");
