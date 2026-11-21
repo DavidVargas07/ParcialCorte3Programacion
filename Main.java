@@ -56,34 +56,29 @@ public class RecursionConMemoria {
                 matriz[posicionX][posicionY] = 'S'; // Se devolvio a esta celda
             }
         }
-
-        for (int f = 0; f < n; f++) { // Recorre cada fila de la matriz
-            for (int c = 0; c < n; c++) { // Recorre cada columna de la fila
-                System.out.print("[" + matriz[f][c] + "]"); // Imprime la celda entre corchetes
+        if (matriz[posicionX + 1][posicionY] == ' ') {
+            if (visitado[posicionX + 1][posicionY] == false) { // Solo si nunca se ha visitado (memoria)
+                cont[1] += 2;
+                matriz[posicionX][posicionY] = '*';
+                matriz[posicionX + 1][posicionY] = 'S';
+                ImprimirMatriz.imprimir(matriz, n);
+                if (explorar(matriz, n, posicionX + 1, posicionY, cont, visitado)) {
+                    return true;
+                }
+                matriz[posicionX][posicionY] = 'S'; // Se devolvio a esta celda
             }
-            System.out.println(); // Salta a la siguiente linea al terminar la fila
         }
-        System.out.println("Llamadas: " + llamadas); // Muestra cuantas llamadas se hicieron
-        System.out.println("Retrocesos: " + retrocesos); // Muestra cuantos retrocesos hubo
-        System.out.println("Maximo teorico con memoria: " + (4 * n * n + 1) + " llamadas"); // Cota O(n^2): 4 vecinos por celda + la llamada inicial
-    }
-
-    static boolean explorar(int f, int c) { // Metodo recursivo: devuelve true si desde (f, c) se llega a X
-        llamadas = llamadas + 1; // Suma una llamada al contador
-
-        if (llamadas > LIMITE) { // Revisa si ya se paso el limite de llamadas
-            limite = true; // Marca que se alcanzo el limite
-            return false; // Detiene la busqueda por este camino
-        }
-
-        // Verifica si esta fuera, es pared '+' o si ya fue visitada antes
-        if (f < 0 || f >= matriz.length || c < 0 || c >= matriz[0].length || // Revisa si la posicion esta fuera del laberinto
-                matriz[f][c] == '+' || visitada[f][c]) { // Revisa si es pared o si ya fue explorada (memoria)
-            return false; // No se puede pasar por esta celda
-        }
-
-        if (matriz[f][c] == 'X') { // Revisa si llegamos a la salida X
-            return true; // Encontro la salida
+        if (matriz[posicionX][posicionY - 1] == ' ') {
+            if (visitado[posicionX][posicionY - 1] == false) { // Solo si nunca se ha visitado (memoria)
+                cont[1] += 3;
+                matriz[posicionX][posicionY] = '*';
+                matriz[posicionX][posicionY - 1] = 'S';
+                ImprimirMatriz.imprimir(matriz, n);
+                if (explorar(matriz, n, posicionX, posicionY - 1, cont, visitado)) {
+                    return true;
+                }
+                matriz[posicionX][posicionY] = 'S'; // Se devolvio a esta celda
+            }
         }
 
         // Marca la celda en la memoria global
