@@ -102,6 +102,7 @@ public class Main {
 
                 MatrizInicial.matriz_inicial(cadena, matrizTablero, anchoAlto); // dejar la matriz original para las otras estrategias
             } else if (metodo == 2) {
+
                 boolean sePuede = Recursion.busquedaRecursiva(matrizTablero, anchoAlto, pos[0], pos[1], cont);
                 while (!sePuede){
                     for (int i = 0; i < anchoAlto; i++) {
