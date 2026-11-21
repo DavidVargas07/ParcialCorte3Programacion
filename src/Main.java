@@ -150,7 +150,7 @@ public class Main {
                 // imprimesion del laberinto en cada movimiento (no se toma en cuenta el tiempo)
                 System.out.println("Recorrido de la serpiente:");
                 MatrizInicial.matriz_inicial(cadena, matrizTablero, anchoAlto); // la funcion imprime la matriz completa
-                FuncionamientoBusquedaExhaustiva.resolver(matriz, n, pos, estado, cont, true);
+                FuncionamientoBusquedaExhaustiva.resolver(matrizTablero, anchoAlto, pos, estado, cont, true);
 
                 for (int r = 0; r < 5; r++) { // 5 repeticiones sin imprimir, para sacar la mediana del tiempo
                     MatrizInicial.matriz_inicial(cadena, matrizTablero, anchoAlto); // empezar sin el camino de la repeticion anterior
