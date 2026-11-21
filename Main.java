@@ -89,7 +89,7 @@ public class RecursionConMemoria {
                 if (explorar(matriz, n, posicionX - 1, posicionY, cont, visitado)) {
                     return true;
                 }
-                return true; // Avisa a la llamada anterior que si hay camino
+                matriz[posicionX][posicionY] = 'S'; // Se devolvio a esta celda
             }
             k = k + 1; // Pasa al siguiente movimiento
         }
