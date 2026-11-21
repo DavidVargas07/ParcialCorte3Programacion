@@ -16,11 +16,32 @@ public class RecursionConMemoria {
         }
         visitado[posicionX][posicionY] = true; // Se marca para siempre, nunca se vuelve a explorar
 
-        System.out.print("Ingrese n: "); // Pide al usuario el tamano del laberinto
-        int n = entrada.nextInt(); // Lee el tamano n (el laberinto sera de n x n)
-        entrada.nextLine(); // Descarta el Enter que deja nextInt para que la siguiente lectura reciba el laberinto
-        System.out.print("Ingrese el laberinto (" + (n * n) + " caracteres): "); // Pide el laberinto como una sola cadena
-        String cadena = entrada.nextLine(); // Lee la cadena completa del laberinto
+        // Si la X esta al lado se llega a la salida (mismo orden que la estrategia A)
+        if (matriz[posicionX][posicionY + 1] == 'X') {
+            cont[1] += 1;
+            matriz[posicionX][posicionY] = '*';
+            matriz[posicionX][posicionY + 1] = 'S';
+            ImprimirMatriz.imprimir(matriz, n);
+            return true;
+        } else if (matriz[posicionX + 1][posicionY] == 'X') {
+            cont[1] += 2;
+            matriz[posicionX][posicionY] = '*';
+            matriz[posicionX + 1][posicionY] = 'S';
+            ImprimirMatriz.imprimir(matriz, n);
+            return true;
+        } else if (matriz[posicionX][posicionY - 1] == 'X') {
+            cont[1] += 3;
+            matriz[posicionX][posicionY] = '*';
+            matriz[posicionX][posicionY - 1] = 'S';
+            ImprimirMatriz.imprimir(matriz, n);
+            return true;
+        } else if (matriz[posicionX - 1][posicionY] == 'X') {
+            cont[1] += 4;
+            matriz[posicionX][posicionY] = '*';
+            matriz[posicionX - 1][posicionY] = 'S';
+            ImprimirMatriz.imprimir(matriz, n);
+            return true;
+        }
 
         matriz = new char[n][n]; // Crea la matriz de n x n para el laberinto
         visitada = new boolean[n][n]; // Crea la matriz de visitadas (todas empiezan en false)
