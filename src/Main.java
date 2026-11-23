@@ -1,3 +1,8 @@
+// David Alejandro Vargas Escobar
+// Mateo Pulido Valderrama
+// Antonio Cabezas Gómez
+// Miguel Ángel Peña Castalleda
+
 import java.util.Scanner;
 
 public class Main {
